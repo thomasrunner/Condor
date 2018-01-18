@@ -1,0 +1,6 @@
+framework module Condor {
+  umbrella header "Condor.h"
+
+  export *
+  module * { export * }
+}
