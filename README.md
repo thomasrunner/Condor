@@ -1,5 +1,5 @@
 # Condor
-Condor is a Sorting Framework available for both Objective C and Swift
+Apple's built-in sorting algorithm implementation is far too slow. Condor is a new Sorting Framework available for both Objective C and Swift in a super easy to use ULTRA LIGHT Framework. 
 
 Condor supports system and NSNumber type in an NSArray.
 
