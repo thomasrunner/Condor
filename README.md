@@ -1,5 +1,5 @@
 # Condor
-Apple's built-in sorting algorithm implementation is far too slow. Condor is a new Sorting Framework available for both Objective C and Swift in a super easy to use ULTRA LIGHT Framework. 
+Apple's built-in sorting algorithm implementation is far too slow. Condor is a new Sorting Framework available for both Objective C and Swift in a super easy to use ULTRA LIGHT Framework.
 
 Condor supports system and NSNumber type in an NSArray.
 
@@ -7,7 +7,7 @@ It comes with 2 specific classes:
      -CondorSort.h for system types (Boolean, unsigned char, signed char, unsigned short, signed short, unsigned int, signed int and float)
      -CondorNSSort.h for NSArray with NSNumbers of the types listed in CondorSort.
      
-     EXAMPLE #1 (CondoCondorNSSort)
+     EXAMPLE #1 (CondorNSSort)
      
      //PROPERTY
      CondorNSSort *condorNSSort = [[CCondorNSSort alloc] init];
@@ -19,9 +19,8 @@ It comes with 2 specific classes:
         unsigned short value = (unsigned short)arc4random_uniform(USHRT_MAX + 1);
         NSNumber *number = [NSNumber numberWithUnsignedShort:value];
         [nsmarray addObject:number];
-
      }
-     //FEEL FREE TO BENCHMARK AGAINST "sortedArrayUsingSelector"
+     //FEEL FREE TO RUN QUICK BENCHMARK AGAINST "sortedArrayUsingSelector"
      //NSDate *date = [NSDate date];
      
      //CONDOR SORT METHOD
@@ -45,7 +44,7 @@ It comes with 2 specific classes:
      CondorSort *condorSort = [[CCondorSort alloc] init];
      
      //TEST METHOD
-     signed int* array = (signed int*)calloc(10000000, 4);
+     signed int* array = (signed int*)calloc(10000000, 2);
      
      NSLog(@"Array Size 10000000");
      for(int i = 0; i < 10000000; i++)
@@ -54,7 +53,7 @@ It comes with 2 specific classes:
         array[i] = (signed int)(value);
      }
      
-     //FEEL FREE TO BENCHMARK AGAINST "sortedArrayUsingSelector"
+     //FEEL FREE TO RUN QUICK BENCHMARK AGAINST "sortedArrayUsingSelector"
      
      //BUILD NSARRAY FOR APPLE METHOD
      //NSMutableArray *nsmarray = [[NSMutableArray alloc] init];
