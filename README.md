@@ -4,8 +4,8 @@ Apple's built-in sorting algorithm implementation is far too slow. Condor is a n
 Condor supports system and NSNumber type in an NSArray.
 
 It comes with 2 specific classes:
-     -CondorSort.h for system types (Boolean, unsigned char, signed char, unsigned short, signed short, unsigned int, signed int and float)
-     -CondorNSSort.h for NSArray with NSNumbers of the types listed in CondorSort.
+     - CondorSort.h for system types (Boolean, unsigned char, signed char, unsigned short, signed short, unsigned int, signed int and float)
+     - CondorNSSort.h for NSArray's with NSNumbers of types listed in CondorSort.
      
      EXAMPLE #1 (CondorNSSort)
      
