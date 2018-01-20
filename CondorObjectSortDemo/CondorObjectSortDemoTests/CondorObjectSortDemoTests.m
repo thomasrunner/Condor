@@ -1,6 +1,6 @@
 //
-//    Condor.h
-//    Condor
+//    CondorObjectSortDemoTests.m
+//    CondorObjectSortDemoTests
 //
 //    Created by Thomas on 2018-01-13.
 //    Copyright © 2018 Thomas Lock. <thomas.lock.personal@gmail.com>
@@ -28,17 +28,34 @@
 //    notice and this notice are preserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <XCTest/XCTest.h>
 
-//! Project version number for Condor.
-FOUNDATION_EXPORT double CondorVersionNumber;
+@interface CondorObjectSortDemoTests : XCTestCase
 
-//! Project version string for Condor.
-FOUNDATION_EXPORT const unsigned char CondorVersionString[];
+@end
 
-// In this header, you should import all the public headers of your framework using statements like #import <Condor/PublicHeader.h>
+@implementation CondorObjectSortDemoTests
 
-#import <Condor/CondorSort.h>
-#import <Condor/CondorNSSort.h>
-#import <Condor/CondorObjectSort.h>
-#import <Condor/CondorObjectProtocol.h>
+- (void)setUp {
+    [super setUp];
+    // Put setup code here. This method is called before the invocation of each test method in the class.
+}
+
+- (void)tearDown {
+    // Put teardown code here. This method is called after the invocation of each test method in the class.
+    [super tearDown];
+}
+
+- (void)testExample {
+    // This is an example of a functional test case.
+    // Use XCTAssert and related functions to verify your tests produce the correct results.
+}
+
+- (void)testPerformanceExample {
+    // This is an example of a performance test case.
+    [self measureBlock:^{
+        // Put the code you want to measure the time of here.
+    }];
+}
+
+@end

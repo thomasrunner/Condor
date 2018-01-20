@@ -1,6 +1,6 @@
 //
-//    Condor.h
-//    Condor
+//    AppDelegate.h
+//    CondorObjectSortDemo
 //
 //    Created by Thomas on 2018-01-13.
 //    Copyright © 2018 Thomas Lock. <thomas.lock.personal@gmail.com>
@@ -30,15 +30,10 @@
 
 #import <UIKit/UIKit.h>
 
-//! Project version number for Condor.
-FOUNDATION_EXPORT double CondorVersionNumber;
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
-//! Project version string for Condor.
-FOUNDATION_EXPORT const unsigned char CondorVersionString[];
+@property (strong, nonatomic) UIWindow *window;
 
-// In this header, you should import all the public headers of your framework using statements like #import <Condor/PublicHeader.h>
 
-#import <Condor/CondorSort.h>
-#import <Condor/CondorNSSort.h>
-#import <Condor/CondorObjectSort.h>
-#import <Condor/CondorObjectProtocol.h>
+@end
+

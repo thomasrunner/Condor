@@ -1,5 +1,5 @@
 //
-//    Condor.h
+//    CondorObjectProtocol.h
 //    Condor
 //
 //    Created by Thomas on 2018-01-13.
@@ -27,18 +27,11 @@
 //    are permitted in any medium without royalty provided the copyright
 //    notice and this notice are preserved.
 //
+#import "Condor.h"
 
-#import <UIKit/UIKit.h>
+@protocol CondorObject <NSObject>
+    @optional
 
-//! Project version number for Condor.
-FOUNDATION_EXPORT double CondorVersionNumber;
-
-//! Project version string for Condor.
-FOUNDATION_EXPORT const unsigned char CondorVersionString[];
-
-// In this header, you should import all the public headers of your framework using statements like #import <Condor/PublicHeader.h>
-
-#import <Condor/CondorSort.h>
-#import <Condor/CondorNSSort.h>
-#import <Condor/CondorObjectSort.h>
-#import <Condor/CondorObjectProtocol.h>
+    @required
+        @property (nonatomic) int condorId;
+@end

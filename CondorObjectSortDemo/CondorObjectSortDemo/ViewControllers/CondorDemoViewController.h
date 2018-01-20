@@ -1,6 +1,6 @@
 //
-//    Condor.h
-//    Condor
+//    CondorDemoViewController.h
+//    CondorObjectSortDemo
 //
 //    Created by Thomas on 2018-01-13.
 //    Copyright © 2018 Thomas Lock. <thomas.lock.personal@gmail.com>
@@ -30,15 +30,19 @@
 
 #import <UIKit/UIKit.h>
 
-//! Project version number for Condor.
-FOUNDATION_EXPORT double CondorVersionNumber;
+@interface CondorDemoViewController : UIViewController<UITextFieldDelegate>
 
-//! Project version string for Condor.
-FOUNDATION_EXPORT const unsigned char CondorVersionString[];
+@property (strong, nonatomic) IBOutlet UITextField *arraySizeTextField;
 
-// In this header, you should import all the public headers of your framework using statements like #import <Condor/PublicHeader.h>
+@property (strong, nonatomic) IBOutlet UILabel *condorPerformanceLabel;
+@property (strong, nonatomic) IBOutlet UILabel *applePerformanceLabel;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
-#import <Condor/CondorSort.h>
-#import <Condor/CondorNSSort.h>
-#import <Condor/CondorObjectSort.h>
-#import <Condor/CondorObjectProtocol.h>
+
+
+- (IBAction)condorSortButton:(id)sender;
+- (IBAction)appleSortButton:(id)sender;
+
+- (IBAction)keyboardRelease:(id)sender;
+
+@end

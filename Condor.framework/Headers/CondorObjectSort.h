@@ -1,5 +1,5 @@
 //
-//    Condor.h
+//    CondorObjectSort.h
 //    Condor
 //
 //    Created by Thomas on 2018-01-13.
@@ -28,17 +28,12 @@
 //    notice and this notice are preserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "Condor.h"
 
-//! Project version number for Condor.
-FOUNDATION_EXPORT double CondorVersionNumber;
+@interface CondorObjectSort : NSObject
 
-//! Project version string for Condor.
-FOUNDATION_EXPORT const unsigned char CondorVersionString[];
+    -(void) reverseOrderOfObjectArray:(void**) array withLow:( int) low andHigh:(int) high;
+    -(NSArray*) sortSignedIntObjectArray:(NSArray *) array orderDesc: (BOOL) descending;
 
-// In this header, you should import all the public headers of your framework using statements like #import <Condor/PublicHeader.h>
-
-#import <Condor/CondorSort.h>
-#import <Condor/CondorNSSort.h>
-#import <Condor/CondorObjectSort.h>
-#import <Condor/CondorObjectProtocol.h>
+@end

@@ -1,6 +1,6 @@
 //
-//    Condor.h
-//    Condor
+//    MyDataModel.h
+//    CondorObjectSortDemo
 //
 //    Created by Thomas on 2018-01-13.
 //    Copyright © 2018 Thomas Lock. <thomas.lock.personal@gmail.com>
@@ -28,17 +28,15 @@
 //    notice and this notice are preserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <Condor/Condor.h>
 
-//! Project version number for Condor.
-FOUNDATION_EXPORT double CondorVersionNumber;
+//Whatever Model you want, no naming requirements other than <CondorObject> protocol
+@interface MyDataModel : NSObject<CondorObject>
 
-//! Project version string for Condor.
-FOUNDATION_EXPORT const unsigned char CondorVersionString[];
+    //Required for CondorObject Protocol Support
+    @property (nonatomic) int condorId;
 
-// In this header, you should import all the public headers of your framework using statements like #import <Condor/PublicHeader.h>
+    //Add whatever additional methods or properties you need.
 
-#import <Condor/CondorSort.h>
-#import <Condor/CondorNSSort.h>
-#import <Condor/CondorObjectSort.h>
-#import <Condor/CondorObjectProtocol.h>
+@end
