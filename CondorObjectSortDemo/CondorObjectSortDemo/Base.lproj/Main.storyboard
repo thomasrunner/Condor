@@ -118,6 +118,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="qUJ-Y7-c5S" id="0cS-Cx-dkj"/>
                         <outlet property="applePerformanceLabel" destination="a4f-nX-Yu8" id="59N-nt-asJ"/>
+                        <outlet property="arraySizeLabel" destination="4He-it-yxz" id="wE2-BB-39l"/>
                         <outlet property="arraySizeTextField" destination="r3B-sh-46Q" id="igK-ZZ-y11"/>
                         <outlet property="condorPerformanceLabel" destination="4YQ-uy-sln" id="gSk-Rh-4zU"/>
                     </connections>

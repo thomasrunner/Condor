@@ -34,9 +34,11 @@
 //Whatever Model you want, no naming requirements other than <CondorObject> protocol
 @interface MyDataModel : NSObject<CondorObject>
 
-    //Required for CondorObject Protocol Support
+    //Both Properties are technically Optional but you must implement the one you want to sort by.
+    //Required for CondorObject Protocol Int Sorting
     @property (nonatomic) int condorId;
 
-    //Add whatever additional methods or properties you need.
+    //Required for CondorObject Protocol Float Sorting
+    @property (nonatomic) float condorIdf;
 
 @end

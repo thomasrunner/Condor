@@ -6,10 +6,15 @@ Condor supports System Types as well NSNumber types in an NSArray.
 UPDATED v1.0.1
 - New Object Sort using CondorObject protocol
 
+UPDATE v1.2.1
+- Fixed decending bug for Object Sort
+- New float Object Sort using CondorObject protocol condorIdf
+- More than 10% performance increase for Int Object Sort
+
 It comes with 3 specific classes:
      - CondorSort.h for system types (Boolean, unsigned char, signed char, unsigned short, signed short, unsigned int, signed int and float)
      - CondorNSSort.h for NSArray's with NSNumbers of types listed in CondorSort.
-     - CondorObjectSort.h for sorting ANY Object so long as it applies the CondorObject Protocol.
+     - CondorObjectSort.h for sorting ANY Object so long as it implements one of the CondorObject optional Protocols.
      
      EXAMPLE #1 (CondorNSSort)
      

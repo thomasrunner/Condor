@@ -35,5 +35,6 @@
 
     -(void) reverseOrderOfObjectArray:(void**) array withLow:( int) low andHigh:(int) high;
     -(NSArray*) sortSignedIntObjectArray:(NSArray *) array orderDesc: (BOOL) descending;
+    -(NSArray*) sortFloatObjectArray:(NSArray *) array orderDesc: (BOOL) descending;
 
 @end

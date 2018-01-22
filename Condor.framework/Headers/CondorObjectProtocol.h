@@ -31,7 +31,9 @@
 
 @protocol CondorObject <NSObject>
     @optional
+    @property (nonatomic) int condorId;
+    @property (nonatomic) float condorIdf;
 
     @required
-        @property (nonatomic) int condorId;
+
 @end

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E9B3C6AB20165FF1006D2173 /* Condor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9B3C6A920165FDF006D2173 /* Condor.framework */; };
+		E9B3C6AC20165FF1006D2173 /* Condor.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E9B3C6A920165FDF006D2173 /* Condor.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E9C005F42012E1250086528E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E9C005F32012E1250086528E /* AppDelegate.m */; };
 		E9C005FA2012E1250086528E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9C005F82012E1250086528E /* Main.storyboard */; };
 		E9C005FC2012E1250086528E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9C005FB2012E1250086528E /* Assets.xcassets */; };
@@ -14,8 +16,6 @@
 		E9C006022012E1250086528E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E9C006012012E1250086528E /* main.m */; };
 		E9C0060C2012E1250086528E /* CondorObjectSortDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E9C0060B2012E1250086528E /* CondorObjectSortDemoTests.m */; };
 		E9C006172012E1250086528E /* CondorObjectSortDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E9C006162012E1250086528E /* CondorObjectSortDemoUITests.m */; };
-		E9C0062C2012E89D0086528E /* Condor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9C006252012E5570086528E /* Condor.framework */; };
-		E9C0062D2012E89D0086528E /* Condor.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E9C006252012E5570086528E /* Condor.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E9C006312012E9650086528E /* CondorDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9C006302012E9650086528E /* CondorDemoViewController.m */; };
 		E9C006372012EE590086528E /* MyDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E9C006362012EE590086528E /* MyDataModel.m */; };
 /* End PBXBuildFile section */
@@ -38,13 +38,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		E9C0062E2012E89D0086528E /* Embed Frameworks */ = {
+		E9B3C6A020164811006D2173 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E9C0062D2012E89D0086528E /* Condor.framework in Embed Frameworks */,
+				E9B3C6AC20165FF1006D2173 /* Condor.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -52,6 +52,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E9B3C6A920165FDF006D2173 /* Condor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Condor.framework; sourceTree = "<group>"; };
 		E9C005EF2012E1250086528E /* CondorObjectSortDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CondorObjectSortDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9C005F22012E1250086528E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E9C005F32012E1250086528E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -66,7 +67,6 @@
 		E9C006122012E1250086528E /* CondorObjectSortDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CondorObjectSortDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9C006162012E1250086528E /* CondorObjectSortDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CondorObjectSortDemoUITests.m; sourceTree = "<group>"; };
 		E9C006182012E1250086528E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E9C006252012E5570086528E /* Condor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Condor.framework; sourceTree = "<group>"; };
 		E9C0062F2012E9650086528E /* CondorDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CondorDemoViewController.h; sourceTree = "<group>"; };
 		E9C006302012E9650086528E /* CondorDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CondorDemoViewController.m; sourceTree = "<group>"; };
 		E9C006352012EE590086528E /* MyDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyDataModel.h; sourceTree = "<group>"; };
@@ -78,7 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9C0062C2012E89D0086528E /* Condor.framework in Frameworks */,
+				E9B3C6AB20165FF1006D2173 /* Condor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,7 +153,7 @@
 		E9C006242012E3A40086528E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E9C006252012E5570086528E /* Condor.framework */,
+				E9B3C6A920165FDF006D2173 /* Condor.framework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -198,7 +198,7 @@
 				E9C005EB2012E1250086528E /* Sources */,
 				E9C005EC2012E1250086528E /* Frameworks */,
 				E9C005ED2012E1250086528E /* Resources */,
-				E9C0062E2012E89D0086528E /* Embed Frameworks */,
+				E9B3C6A020164811006D2173 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -411,7 +411,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -428,9 +428,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -471,13 +471,14 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -498,7 +499,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = blog.thomaslock.CondorObjectSortDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -516,7 +517,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = blog.thomaslock.CondorObjectSortDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -32,6 +32,7 @@
 
 @interface CondorDemoViewController : UIViewController<UITextFieldDelegate>
 
+@property (strong, nonatomic) IBOutlet UILabel *arraySizeLabel;
 @property (strong, nonatomic) IBOutlet UITextField *arraySizeTextField;
 
 @property (strong, nonatomic) IBOutlet UILabel *condorPerformanceLabel;
