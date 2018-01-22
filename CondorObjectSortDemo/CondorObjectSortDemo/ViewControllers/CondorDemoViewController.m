@@ -102,7 +102,7 @@
     NSDate *date = [NSDate date];
     
     //FLOAT OBJECT SORTING
-    NSArray *nsarray = [self.condorObjectSort  sortFloatObjectArray:nsmarray orderDesc:true];
+    NSArray *nsarray = [self.condorObjectSort  sortFloatObjectArray:nsmarray orderDesc:false];
     arraySizeLabel.text =@"FLOAT ARRAY SIZE";
     
     //INT OBJECT SORTING
