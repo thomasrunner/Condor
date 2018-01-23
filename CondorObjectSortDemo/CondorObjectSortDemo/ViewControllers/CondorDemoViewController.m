@@ -100,6 +100,7 @@
         skipper++;
         if (skipper == 3) skipper = 0;
 
+        //ONLY ONE Thank you Oleg :)
         [nsmarray addObject:number];
     }
     
@@ -121,6 +122,7 @@
     double timePassed_ms = [date timeIntervalSinceNow] * -1000.0;
     condorPerformanceLabel.text = [NSString stringWithFormat:@"%.2f ms", timePassed_ms];
     
+    //Outputs small sets
     if(arraySize <200)
     {
         for(MyDataModel *myd in nsarray)
@@ -130,14 +132,15 @@
         }
     }
     
+    //Validate sorting order if not output error
     Boolean passed = true;
-    for(int i = 1; i < arraySize; i++)
+    for(int i = 1; i < arraySize-1; i++)
     {
         if([nsarray[i] condorIdf] < [nsarray[i-1] condorIdf])
         {
-            NSLog(@"Not Sort %f and %f", [nsarray[i-1] condorIdf], i-1);
-            NSLog(@"Not Sort %f and %f", [nsarray[i] condorIdf], i);
-            NSLog(@"Not Sort %d and %f", [nsarray[i+1] condorIdf], i+1);
+            NSLog(@"Not Sort %f and %i", [nsarray[i-1] condorIdf], i-1);
+            NSLog(@"Not Sort %f and %i", [nsarray[i] condorIdf], i);
+            NSLog(@"Not Sort %f and %i", [nsarray[i+1] condorIdf], i+1);
             passed = false;
             //break;
         }
@@ -177,6 +180,7 @@
         skipper++;
         if (skipper == 3) skipper = 0;
         
+        //ONLY ONE Thank you Oleg :)
         [nsmarray addObject:number];
     }
     
@@ -195,7 +199,7 @@
     applePerformanceLabel.text = [NSString stringWithFormat:@"%.2f ms", timePassed_ms];
     
     //Outputs results on small tests
-    if(arraySize <101)
+    if(arraySize <200)
     {
         for(MyDataModel *myd in nsarray)
         {
@@ -204,18 +208,6 @@
         }
     }
     
-    Boolean passed = true;
-    for(int i = 1; i < arraySize; i++)
-    {
-        if([nsarray[i] condorIdf] < [nsarray[i-1] condorIdf])
-        {
-            NSLog(@"Not Sort");
-            passed = false;
-            break;
-        }
-    }
-    
-    nsmarray = nil;
     [activityIndicator stopAnimating];
 }
 
