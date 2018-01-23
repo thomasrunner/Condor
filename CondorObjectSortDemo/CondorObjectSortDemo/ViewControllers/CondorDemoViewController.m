@@ -29,8 +29,11 @@
 //
 
 #import "CondorDemoViewController.h"
-#import <Condor/Condor.h>
+
 #import "MyDataModel.h"
+#import <Condor/Condor.h>
+
+//#import "CondorObjectSort.h"
 
 //Super Basic Condor Demo
 @interface CondorDemoViewController ()
@@ -76,19 +79,21 @@
     NSMutableArray *nsmarray = [[NSMutableArray alloc] init];
     for (int i = 0; i < arraySize; i++)
     {
-        int value = (int)arc4random_uniform(1000);
         MyDataModel *number = [[MyDataModel alloc] init];
-        number.condorId = value;
+        
         switch (skipper)
         {
             case 0:
+                number.condorId = (int)arc4random_uniform(7276800);
                 number.condorIdf =  (float)(i/1000.0f);
                 break;
             case 1:
+                number.condorId = -(int)arc4random_uniform(7276800);
                 number.condorIdf =  (float)((float)arc4random_uniform(3276800 * 2) * M_PI_2);
                 break;
                 
             case 2:
+                number.condorId = (int)arc4random_uniform(256);
                 number.condorIdf =  -(float)((float)arc4random_uniform(3276800 * 2) * M_PI_2);
                 break;
         }
@@ -116,7 +121,7 @@
     double timePassed_ms = [date timeIntervalSinceNow] * -1000.0;
     condorPerformanceLabel.text = [NSString stringWithFormat:@"%.2f ms", timePassed_ms];
     
-    if(arraySize <101)
+    if(arraySize <200)
     {
         for(MyDataModel *myd in nsarray)
         {
@@ -125,7 +130,19 @@
         }
     }
     
-    nsmarray = nil;
+    Boolean passed = true;
+    for(int i = 1; i < arraySize; i++)
+    {
+        if([nsarray[i] condorIdf] < [nsarray[i-1] condorIdf])
+        {
+            NSLog(@"Not Sort %f and %f", [nsarray[i-1] condorIdf], i-1);
+            NSLog(@"Not Sort %f and %f", [nsarray[i] condorIdf], i);
+            NSLog(@"Not Sort %d and %f", [nsarray[i+1] condorIdf], i+1);
+            passed = false;
+            //break;
+        }
+    }
+    
     [activityIndicator stopAnimating];
 }
 
@@ -135,16 +152,31 @@
     unsigned int arraySize = [arraySizeTextField.text intValue];
     
     //Generate an Array of MyDataModel Objects with Random condorId value.
+    int skipper = 0;
     NSMutableArray *nsmarray = [[NSMutableArray alloc] init];
     for (int i = 0; i < arraySize; i++)
     {
-        int value = (int)arc4random_uniform(1000000);
         MyDataModel *number = [[MyDataModel alloc] init];
-        number.condorId = value;
         
-        float fvalue =  (float)((float)arc4random_uniform(32768 * 2) * M_PI_2);
-        number.condorIdf = fvalue;
-        [nsmarray addObject:number];
+        switch (skipper)
+        {
+            case 0:
+                number.condorId = (int)arc4random_uniform(7276800);
+                number.condorIdf =  (float)(i/1000.0f);
+                break;
+            case 1:
+                number.condorId = -(int)arc4random_uniform(7276800);
+                number.condorIdf =  (float)((float)arc4random_uniform(3276800 * 2) * M_PI_2);
+                break;
+                
+            case 2:
+                number.condorId = (int)arc4random_uniform(256);
+                number.condorIdf =  -(float)((float)arc4random_uniform(3276800 * 2) * M_PI_2);
+                break;
+        }
+        skipper++;
+        if (skipper == 3) skipper = 0;
+        
         [nsmarray addObject:number];
     }
     
@@ -169,6 +201,17 @@
         {
             //Change "condorIdf" to "condorId" to test Int
             NSLog(@"Sorted: %f", myd.condorIdf);
+        }
+    }
+    
+    Boolean passed = true;
+    for(int i = 1; i < arraySize; i++)
+    {
+        if([nsarray[i] condorIdf] < [nsarray[i-1] condorIdf])
+        {
+            NSLog(@"Not Sort");
+            passed = false;
+            break;
         }
     }
     

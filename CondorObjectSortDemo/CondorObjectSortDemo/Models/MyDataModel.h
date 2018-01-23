@@ -29,6 +29,7 @@
 //
 
 #import <Foundation/Foundation.h>
+//#import "CondorObjectProtocol.h"
 #import <Condor/Condor.h>
 
 //Whatever Model you want, no naming requirements other than <CondorObject> protocol

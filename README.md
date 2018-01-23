@@ -17,6 +17,9 @@ UPDATE v1.2.2
 - Fixed not sorting last value of Int Object Sort
 - Updated System Type algorithms with additional tweaks already in Object Sort
 
+UPDATE v1.2.4
+- Fixed over optimization bugs on Object Sort
+
 It comes with 3 specific classes:
      - CondorSort.h for system types (Boolean, unsigned char, signed char, unsigned short, signed short, unsigned int, signed int and float)
      - CondorNSSort.h for NSArray's with NSNumbers of types listed in CondorSort.
