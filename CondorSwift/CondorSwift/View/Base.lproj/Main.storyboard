@@ -125,7 +125,7 @@
         <scene sceneID="2Rh-DW-uME">
             <objects>
                 <viewController title="OBJECTIVE C" id="oyC-sL-3uW" customClass="CondorDemoViewControllerObj" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="dIx-4F-hLt">
+                    <view key="view" contentMode="scaleToFill" id="dIx-4F-hLt" customClass="UIControl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -202,6 +202,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="T2c-IC-hp2"/>
+                        <connections>
+                            <action selector="keyboardRelease:" destination="oyC-sL-3uW" eventType="touchDown" id="wR5-zv-gvS"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="applePerformanceLabel" destination="uCZ-EG-EXl" id="3G4-eM-tx4"/>
