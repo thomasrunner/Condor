@@ -61,7 +61,7 @@ class CondorDemoViewController: UIViewController {
         
         while (i < n! ) {
             let myData = MyDataModel()
-            myData.condorId = Int32(arc4random_uniform(10))
+            myData.condorId = Int32(arc4random_uniform(1000000))
             array.append(myData)
             i = i + 1
         }
