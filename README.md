@@ -3,7 +3,7 @@ Apple's built-in sorting algorithm implementation is far too slow. Condor is a n
 
 Condor supports System Types as well NSNumber types in an NSArray.
 
-2 Copies of the framework existing. One part of the app and one in the root directory if that is all you want to download.
+**YOU CAN FIND THE FRAMEWORK LOCATED IN THE PROJECT**
 
 UPDATED v1.0.1
 - New Object Sort using CondorObject protocol
@@ -19,6 +19,10 @@ UPDATE v1.2.2
 
 UPDATE v1.2.4
 - Fixed over optimization bugs on Object Sort
+
+UPDATE v1.2.5
+- Merged all project into a single Project which has Swift and Objective C ViewControllers and Tests
+- Fixed UInt32*, UInt*, and float* array bugs
 
 It comes with 3 specific classes:
      - CondorSort.h for system types (Boolean, unsigned char, signed char, unsigned short, signed short, unsigned int, signed int and float)
