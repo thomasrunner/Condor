@@ -29,13 +29,17 @@
 //
 
 import UIKit
+import Condor
 
 
+public class MyDataModel: NSObject  {
 
-public class MyDataModel: NSObject {
+    @objc let condorId : Int;
+    @objc let anyPropertyFloat : Float;
     
-    
-    @objc var condorId = Int32(0);
-    
-    
+    public init(condor : Int, condorf : Float) {
+        condorId = condor
+        anyPropertyFloat = condorf
+        super.init()
+    }
 }

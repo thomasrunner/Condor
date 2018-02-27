@@ -33,10 +33,15 @@
 #import "MyDataModel.h"
 #import <Condor/Condor.h>
 
+
 //Basic Condor Framework Demo
 @interface CondorDemoViewControllerObj()
+{
+    unsigned int arraySize;
+}
 
-    @property (strong, nonatomic) CondorObjectSort *condorObjectSort;
+    @property (strong, nonatomic) CondorObjectSortInt *condorObjectSort;
+    @property (strong, nonatomic) CondorObjectSortFloat *condorObjectSortFloat;
     @property (strong, nonatomic) CondorSort *condorSort;
 
 @end
@@ -49,14 +54,15 @@
 @synthesize condorObjectSort;
 @synthesize arraySizeLabel;
 @synthesize condorSort;
+@synthesize condorObjectSortFloat;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     //Create an Object of CondorObjectSort
-    condorObjectSort = [[CondorObjectSort alloc] init];
+    condorObjectSort = [[CondorObjectSortInt alloc] init];
     condorSort = [[CondorSort alloc] init];
-    
+    condorObjectSortFloat = [[CondorObjectSortFloat alloc] init];
     // Do any additional setup after loading the view.
 }
 
@@ -69,56 +75,53 @@
     [activityIndicator startAnimating];
 }
 
-
-- (IBAction)condorSortButton:(id)sender {
-    
+-(void) buildTestArray:(NSMutableArray*)array
+{
     //Get Array Size no Validation in Demo
-    unsigned int arraySize = [arraySizeTextField.text intValue];
-
-    //Generate an Array of MyDataModel Objects with Random condorId and condorIdf value.
+    arraySize = [arraySizeTextField.text intValue];
     int skipper = 0;
-    NSMutableArray *nsmarray = [[NSMutableArray alloc] init];
     for (int i = 0; i < arraySize; i++)
     {
         MyDataModel *number = [[MyDataModel alloc] init];
-        
         switch (skipper)
         {
             case 0:
-                number.condorId = (int)arc4random_uniform(7276800);
-                number.condorIdf =  (float)(i/1000.0f);
+                number.anyPropertyInt = (int)arc4random_uniform(7276800);
+                number.anyPropertyFloat =  (float)(i/1000.0f);
                 break;
             case 1:
-                number.condorId = -(int)arc4random_uniform(7276800);
-                number.condorIdf =  (float)((float)arc4random_uniform(3276800 * 2) * M_PI_2);
+                number.anyPropertyInt = -(int)arc4random_uniform(7276800);
+                number.anyPropertyFloat =  (float)((float)arc4random_uniform(3276800 * 2) * M_PI_2);
                 break;
                 
             case 2:
-                number.condorId = (int)arc4random_uniform(256);
-                number.condorIdf =  -(float)((float)arc4random_uniform(3276800 * 2) * M_PI_2);
+                number.anyPropertyInt = (int)arc4random_uniform(256);
+                number.anyPropertyFloat =  -(float)((float)arc4random_uniform(3276800 * 2) * M_PI_2);
                 break;
         }
         skipper++;
         if (skipper == 3) skipper = 0;
-
+        
         //ONLY ONE Thank you Oleg :)
-        [nsmarray addObject:number];
+        [array addObject:number];
     }
+}
+
+- (IBAction)condorSortFloatButton:(id)sender {
+
+    //Generate an Array of MyDataModel Objects with Random Property values.
+    NSMutableArray *nsmarray = [[NSMutableArray alloc] init];
+    [self buildTestArray:nsmarray];
     
     //Simple Timing
     NSDate *date = [NSDate date];
     
+    NSString *selectorString = @"anyPropertyFloat";
+    
     //FLOAT OBJECT SORTING
-    NSArray *nsarray = [self.condorObjectSort  sortFloatObjectArray:nsmarray orderDesc:false];
+    NSArray *nsarray = [self.condorObjectSortFloat  sortFloatObjectArray:nsmarray orderDesc:false selectorNameAsString:selectorString];
     arraySizeLabel.text =@"OBJECT FLOAT ARRAY SIZE";
     
-//    //INT OBJECT SORTING
-//    NSArray *nsarray = [self.condorObjectSort sortSignedIntObjectArray:nsmarray orderDesc:false];
-//    arraySizeLabel.text = @"OBJECT INT32 ARRAY SIZE";
-    
-    //REVERSE ORDER OR ANY ARRAY
-//  [self reverseOrderOfObjectArray: array withLow:0 andHigh:(int)[nsmarray count]-1];
-
     //Get Timing Result
     double timePassed_ms = [date timeIntervalSinceNow] * -1000.0;
     condorPerformanceLabel.text = [NSString stringWithFormat:@"%.2f ms", timePassed_ms];
@@ -128,8 +131,7 @@
     {
         for(MyDataModel *myd in nsarray)
         {
-            //Change "condorIdf" to "condorId" to test Int
-            NSLog(@"Sorted: %f", myd.condorIdf);
+            NSLog(@"Sorted: %f", myd.anyPropertyFloat);
         }
     }
     
@@ -137,9 +139,52 @@
     Boolean passed = true;
     for(int i = 1; i < arraySize-1; i++)
     {
-        if([nsarray[i] condorIdf] < [nsarray[i-1] condorIdf])
+        if([nsarray[i] anyPropertyFloat] < [nsarray[i-1] anyPropertyFloat])
         {
-            NSLog(@"Not Sort %f and %i", [nsarray[i] condorIdf], i);
+            NSLog(@"Not Sort %f and %i", [nsarray[i] anyPropertyFloat], i);
+            passed = false;
+        }
+    }
+    
+    [activityIndicator stopAnimating];
+}
+
+
+- (IBAction)condorSortButton:(id)sender {
+    
+    //Generate an Array of MyDataModel Objects with Random Property values.
+    NSMutableArray *nsmarray = [[NSMutableArray alloc] init];
+    [self buildTestArray:nsmarray];
+    
+    //Simple Timing
+    NSDate *date = [NSDate date];
+    
+    NSString *selectorString = @"anyPropertyInt";
+
+    //INT OBJECT SORTING
+    NSArray *nsarray = [self.condorObjectSort sortSignedIntObjectArray:nsmarray orderDesc:false selectorNameAsString:selectorString];
+    arraySizeLabel.text = @"OBJECT INT32 ARRAY SIZE";
+    
+    //Get Timing Result
+    double timePassed_ms = [date timeIntervalSinceNow] * -1000.0;
+    condorPerformanceLabel.text = [NSString stringWithFormat:@"%.2f ms", timePassed_ms];
+    
+    //Outputs small sets
+    if(arraySize <200)
+    {
+        for(MyDataModel *myd in nsarray)
+        {
+            NSLog(@"Sorted: %d", myd.anyPropertyInt);
+        }
+    }
+    
+    //Validate sorting order if not output error
+    Boolean passed = true;
+    for(int i = 1; i < arraySize-1; i++)
+    {
+        if([nsarray[i] anyPropertyInt] < [nsarray[i-1] anyPropertyInt])
+        {
+            NSLog(@"Not Sort %d and %i", [nsarray[i] anyPropertyInt], i);
             passed = false;
         }
     }
@@ -149,7 +194,7 @@
 
 - (IBAction)condorInt32SortButton:(id)sender {
     
-    unsigned int arraySize = [arraySizeTextField.text intValue];
+    arraySize = [arraySizeTextField.text intValue];
     
     signed int* array = (signed int*)calloc(arraySize, 4);
     
@@ -200,7 +245,7 @@
 
 - (IBAction)condorUInt32Button:(id)sender {
     
-    unsigned int arraySize = [arraySizeTextField.text intValue];
+    arraySize = [arraySizeTextField.text intValue];
     
     // UNSIGNED INT32
     unsigned int* array = (unsigned int*)calloc(arraySize, 4);
@@ -245,7 +290,7 @@
 
 - (IBAction)condorFloatButton:(id)sender {
     
-    unsigned int arraySize = [arraySizeTextField.text intValue];
+    arraySize = [arraySizeTextField.text intValue];
     
     //FLOAT
     float* array = (float*)calloc(arraySize, 4);
@@ -288,66 +333,51 @@
     [activityIndicator stopAnimating];
 }
 
-- (IBAction)appleSortButton:(id)sender {
+- (IBAction)appleSortFloatButton:(id)sender {
     
-    //Get Array Size no Validation in Demo
-    unsigned int arraySize = [arraySizeTextField.text intValue];
-    
-    //Generate an Array of MyDataModel Objects with Random condorId value.
-    int skipper = 0;
+    //Generate an Array of MyDataModel Objects with Random Property values.
     NSMutableArray *nsmarray = [[NSMutableArray alloc] init];
-    for (int i = 0; i < arraySize; i++)
-    {
-        MyDataModel *number = [[MyDataModel alloc] init];
-        
-        switch (skipper)
-        {
-            case 0:
-                number.condorId = (int)arc4random_uniform(7276800);
-                number.condorIdf =  (float)(i/1000.0f);
-                break;
-            case 1:
-                number.condorId = -(int)arc4random_uniform(7276800);
-                number.condorIdf =  (float)((float)arc4random_uniform(3276800 * 2) * M_PI_2);
-                break;
-                
-            case 2:
-                number.condorId = (int)arc4random_uniform(256);
-                number.condorIdf =  -(float)((float)arc4random_uniform(3276800 * 2) * M_PI_2);
-                break;
-        }
-        skipper++;
-        if (skipper == 3) skipper = 0;
-        
-        //ONLY ONE Thank you Oleg :)
-        [nsmarray addObject:number];
-    }
+    [self buildTestArray:nsmarray];
     
-    arraySizeLabel.text = @"OBJECT INT32 ARRAY SIZE";
-    //Change "condorIdf" to "condorId" to test Int
-    NSSortDescriptor *condorDescriptor = [[NSSortDescriptor alloc] initWithKey:@"condorId" ascending:YES];
+    arraySizeLabel.text = @"OBJECT FLOAT ARRAY SIZE";
+
+    NSSortDescriptor *condorDescriptor = [[NSSortDescriptor alloc] initWithKey:@"anyPropertyFloat" ascending:YES];
     NSArray *sortDescriptors = @[condorDescriptor];
     
     //Simple Timing
     NSDate *date = [NSDate date];
     
     //Apple Sorting Algorithm
-    NSArray *nsarray = [nsmarray sortedArrayUsingDescriptors:sortDescriptors];
+    __unused NSArray *nsarray = [nsmarray sortedArrayUsingDescriptors:sortDescriptors];
     
     //Get Timing Result
     double timePassed_ms = [date timeIntervalSinceNow] * -1000.0;
     applePerformanceLabel.text = [NSString stringWithFormat:@"%.2f ms", timePassed_ms];
     
-    //Outputs results on small tests
-    if(arraySize <200)
-    {
-        for(MyDataModel *myd in nsarray)
-        {
-            //Change "condorIdf" to "condorId" to test Int
-            NSLog(@"Sorted: %i", myd.condorId);
-        }
-    }
+    [activityIndicator stopAnimating];
+}
+
+- (IBAction)appleSortButton:(id)sender {
     
+    //Generate an Array of MyDataModel Objects with Random Property values.
+    NSMutableArray *nsmarray = [[NSMutableArray alloc] init];
+    [self buildTestArray:nsmarray];
+    
+    arraySizeLabel.text = @"OBJECT INT32 ARRAY SIZE";
+    
+    NSSortDescriptor *condorDescriptor = [[NSSortDescriptor alloc] initWithKey:@"anyPropertyInt" ascending:YES];
+    NSArray *sortDescriptors = @[condorDescriptor];
+    
+    //Simple Timing
+    NSDate *date = [NSDate date];
+    
+    //Apple Sorting Algorithm
+    __unused NSArray *nsarray = [nsmarray sortedArrayUsingDescriptors:sortDescriptors];
+    
+    //Get Timing Result
+    double timePassed_ms = [date timeIntervalSinceNow] * -1000.0;
+    applePerformanceLabel.text = [NSString stringWithFormat:@"%.2f ms", timePassed_ms];
+
     [activityIndicator stopAnimating];
 }
 

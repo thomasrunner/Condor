@@ -38,9 +38,12 @@ class CondorDemoViewController: UIViewController {
     @IBOutlet var condorPerformanceLabel: UILabel!
     @IBOutlet var swiftPerformanceLabel: UILabel!
     
+    var array:[MyDataModel] = []
+    
+    var arraySize : Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
@@ -53,56 +56,61 @@ class CondorDemoViewController: UIViewController {
         arraySizeTextField.resignFirstResponder()
     }
     
+    func buildTestArray()
+    {
+        //Get Array Size no Validation in Demo
+        arraySize = Int(arraySizeTextField.text!)!
+        var skipper = 0
+        for i in 0..<arraySize
+        {
+            var number : MyDataModel
+            switch (skipper)
+            {
+                case 0:
+                    number = MyDataModel.init(condor: Int(arc4random_uniform(7276800)), condorf: Float(Float(i)/1000.0));
+                    break;
+                case 1:
+                    number = MyDataModel.init(condor: -Int(arc4random_uniform(7276800)), condorf: Float(Float(arc4random_uniform(3276800 * 2)) * Float(Double.pi)));
+                    break;
+                
+                case 2:
+                    number = MyDataModel.init(condor: Int(arc4random_uniform(256)), condorf: -Float(Float(arc4random_uniform(3276800 * 2)) * Float(Double.pi)));
+                    break;
+                
+                default:
+                    number = MyDataModel.init(condor: Int(arc4random_uniform(7276800)), condorf: Float(Float(i)/1000.0));
+            }
+        
+            skipper += 1;
+            if skipper == 3 { skipper = 0 };
+        
+            //ONLY ONE Thank you Oleg :)
+            array.append(number)
+        }
+    }
+    
     @IBAction func condorSortButton(_ sender: Any){
         
-        let condorSort = CondorObjectSort()
-        let n = Int(arraySizeTextField.text!)
-        
-        var array:[MyDataModel] = []
-        var output:[MyDataModel] = []
-        var i = 0
-        
-        while (i < n! ) {
-            let myData = MyDataModel()
-            myData.condorId = Int32(arc4random_uniform(1000000))
-            array.append(myData)
-            i = i + 1
-        }
-        i = 0
+        let condorSort = CondorObjectSortFloat()
+        array = []
+        buildTestArray()
         
         let d1 = NSDate()
-        
-        //THIS IS AN OBJECTIVE C VERSION A NATIVE SWIFT VERSION IS ABOUT 40% FASTER
-        output =  condorSort.sortSignedIntObjectArray(array, orderDesc: false) as! [MyDataModel]
-
+        //THIS IS AN OBJECTIVE C VERSION A NATIVE SWIFT VERSION IS ABOUT 40-60% FASTER
+        let selectorString : String = "anyPropertyFloat"
+        _ = condorSort.sortFloatObjectArray(array, orderDesc: false, selectorNameAs: selectorString) as! [MyDataModel]
         print("Performance ",d1.timeIntervalSinceNow * -1000)
-        i = 0
-        if(n! > 100)
-        {
-            while (i < 100 ) {
-                print(output[i].condorId)
-                i = i + 1
-            }
-        }
-        
         condorPerformanceLabel.text = String(format:"%0.2f" ,d1.timeIntervalSinceNow * -1000) + "ms"
     }
     
     @IBAction func swiftSortButton(_ sender: Any) {
         
-        let n = Int(arraySizeTextField.text!)
-
-        var array:[MyDataModel] = []
-        var i = 0
-        while (i < n! ) {
-            let myData = MyDataModel()
-            myData.condorId = Int32(arc4random_uniform(1000000))
-            array.append(myData)
-            i = i + 1
-        }
+        array = []
+        buildTestArray()
         
         let d1 = NSDate()
-        _ = array.sorted(by: { $0.condorId < $1.condorId })
+        _ = array.sorted(by: { $0.anyPropertyFloat < $1.anyPropertyFloat })
+//        _ = array.sort(by: { $0.condorId < $1.condorId })
         print("Performance ",d1.timeIntervalSinceNow * -1000)
         swiftPerformanceLabel.text = String(format:"%0.2f" ,d1.timeIntervalSinceNow * -1000) + "ms"
     }

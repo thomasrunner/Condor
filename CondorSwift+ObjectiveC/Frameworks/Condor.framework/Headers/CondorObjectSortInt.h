@@ -1,8 +1,8 @@
 //
-//    Condor.h
+//    CondorObjectSortInt.h
 //    Condor
 //
-//    Created by Thomas on 2018-01-13.
+//    Created by Thomas on 2018-02-24.
 //    Copyright © 2018 Thomas Lock. <thomas.lock.personal@gmail.com>
 //
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -28,18 +28,13 @@
 //    notice and this notice are preserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "Condor.h"
 
-//! Project version number for Condor.
-FOUNDATION_EXPORT double CondorVersionNumber;
+@interface CondorObjectSortInt : NSObject
 
-//! Project version string for Condor.
-FOUNDATION_EXPORT const unsigned char CondorVersionString[];
+@property (nonatomic, strong) NSString *sortIntProperty;
 
-// In this header, you should import all the public headers of your framework using statements like #import <Condor/PublicHeader.h>
+-(NSArray *) sortSignedIntObjectArray:(NSArray *) array orderDesc: (BOOL) descending selectorNameAsString : (NSString *) sortProperty;
 
-#import <Condor/CondorSort.h>
-#import <Condor/CondorNSSort.h>
-#import <Condor/CondorObjectSort.h>
-#import <Condor/CondorObjectSortInt.h>
-#import <Condor/CondorObjectSortFloat.h>
+@end

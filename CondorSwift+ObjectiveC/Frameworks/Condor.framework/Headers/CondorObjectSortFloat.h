@@ -1,8 +1,8 @@
 //
-//    CondorObjectProtocol.h
+//    CondorObjectSortFloat.h
 //    Condor
 //
-//    Created by Thomas on 2018-01-13.
+//    Created by Thomas on 2018-02-24.
 //    Copyright © 2018 Thomas Lock. <thomas.lock.personal@gmail.com>
 //
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -27,13 +27,14 @@
 //    are permitted in any medium without royalty provided the copyright
 //    notice and this notice are preserved.
 //
+
+#import <Foundation/Foundation.h>
 #import "Condor.h"
 
-@protocol CondorObject <NSObject>
-    @optional
-    @property (nonatomic) int condorId;
-    @property (nonatomic) float condorIdf;
+@interface CondorObjectSortFloat : NSObject
 
-    @required
+@property (nonatomic, strong) NSString *sortFloatProperty;
+
+-(NSArray*) sortFloatObjectArray:(NSArray *) array orderDesc: (BOOL) descending selectorNameAsString : (NSString *) sortProperty;
 
 @end

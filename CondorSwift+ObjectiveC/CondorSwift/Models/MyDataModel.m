@@ -32,6 +32,5 @@
 
 @implementation MyDataModel
 
-    
 
 @end

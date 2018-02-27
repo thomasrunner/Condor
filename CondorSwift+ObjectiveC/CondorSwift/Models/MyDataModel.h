@@ -30,14 +30,13 @@
 
 #import <Foundation/Foundation.h>
 
-//Whatever Model you want, no naming requirements other than <CondorObject> protocol
 @interface MyDataModel : NSObject
 
-    //Both Properties are technically Optional but you must implement the one you want to sort by.
-    //Required for CondorObject Protocol Int Sorting
-    @property (nonatomic) int condorId;
+    //Any Property that is returns a int is valid
+    @property (nonatomic) int anyPropertyInt;
 
-    //Required for CondorObject Protocol Float Sorting
-    @property (nonatomic) float condorIdf;
+    //Any Property that is returns a int is valid
+    @property (nonatomic) float anyPropertyFloat;
+
 
 @end
