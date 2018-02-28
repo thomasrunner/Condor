@@ -5,6 +5,9 @@ Condor supports System Types as well NSNumber types in an NSArray.
 
 **YOU CAN FIND THE FRAMEWORK LOCATED IN THE PROJECT**
 
+UPDATE v1.2.8
+- Minor performance boost for Object Int Property Sort
+
 UPDATE v1.2.7
 - New Float Tests in Objective C and Swift
 - Removed Protocol requirements, now ANY Int or Float property in SWIFT and ANY int or float property in ObjC
