@@ -91,16 +91,37 @@ class CondorDemoViewController: UIViewController {
     
     @IBAction func condorSortButton(_ sender: Any){
         
-        let condorSort = CondorObjectSortFloat()
+//        let condorSort = CondorSObjectSort<MyDataModel>()
+        let condorSort = CondorObjectSortInt()
         array = []
         buildTestArray()
         
         let d1 = NSDate()
         //THIS IS AN OBJECTIVE C VERSION A NATIVE SWIFT VERSION IS ABOUT 40-60% FASTER
-        let selectorString : String = "anyPropertyFloat"
-        _ = condorSort.sortFloatObjectArray(array, orderDesc: false, selectorNameAs: selectorString) as! [MyDataModel]
+        let selectorString : String = "condorId"
+//
+        let output = condorSort.sortSignedIntObjectArray(array, orderDesc: false, selectorNameAs: selectorString) as! [MyDataModel]
+//        let output = condorSort.sort(array:array, descending: false, property: { Int32($0.condorId) })
+        
         print("Performance ",d1.timeIntervalSinceNow * -1000)
         condorPerformanceLabel.text = String(format:"%0.2f" ,d1.timeIntervalSinceNow * -1000) + "ms"
+        
+        var passed : Bool = true
+        var countErrors : Int = 0
+        for i in 1..<array.count
+        {
+            if(output[i].condorId < output[i-1].condorId)
+            {
+                countErrors += 1
+                passed = false;
+                print("\(output[i].condorId) \(i) ")
+                //break;
+            }
+        }
+        
+        print(countErrors)
+        if passed == true { print("In Order") }
+        
     }
     
     @IBAction func swiftSortButton(_ sender: Any) {

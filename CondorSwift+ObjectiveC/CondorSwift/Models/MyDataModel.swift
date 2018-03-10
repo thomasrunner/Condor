@@ -29,10 +29,8 @@
 //
 
 import UIKit
-import Condor
 
-
-public class MyDataModel: NSObject  {
+public class MyDataModel  {
 
     @objc let condorId : Int;
     @objc let anyPropertyFloat : Float;
@@ -40,6 +38,6 @@ public class MyDataModel: NSObject  {
     public init(condor : Int, condorf : Float) {
         condorId = condor
         anyPropertyFloat = condorf
-        super.init()
+        //super.init()
     }
 }
