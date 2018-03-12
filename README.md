@@ -1,9 +1,12 @@
 # Condor - 9x Faster than ObjC and 1.5x Faster than SWIFT
-Apple's built-in sorting algorithm implementation is far too slow. Condor is a new Sorting Framework available for both Objective C and Swift in a super easy to use ULTRA LIGHT Framework. Since this Framework was written in ObjC it runs much slow in SWIFT than ObjC but is still able to outperform SWIFT.
+Apple's built-in sorting algorithm implementation is far too slow. Condor is a new Sorting Framework available for both Objective C and Swift in a super easy to use ULTRA LIGHT Framework. Since this Framework was written in ObjC it runs much much slower in SWIFT than ObjC but is still able to outperforms SWIFT.
 
 Condor supports System Types as well NSNumber types in an NSArray.
 
 **YOU CAN FIND THE FRAMEWORK LOCATED IN THE PROJECT**
+
+UPDATE v1.2.9 b
+- Added Quicksort to Apple's side of Algorithms and it still loses.
 
 UPDATE v1.2.9
 - Minor performance boosts for Object Sort, UInt32, Int32 and Float
