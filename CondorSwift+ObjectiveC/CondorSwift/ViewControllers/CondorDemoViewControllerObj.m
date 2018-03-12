@@ -34,6 +34,7 @@
 #import <Condor/Condor.h>
 
 
+
 //Basic Condor Framework Demo
 @interface CondorDemoViewControllerObj()
 {
@@ -126,14 +127,14 @@
     double timePassed_ms = [date timeIntervalSinceNow] * -1000.0;
     condorPerformanceLabel.text = [NSString stringWithFormat:@"%.2f ms", timePassed_ms];
     
-    //Outputs small sets
-    if(arraySize <200)
-    {
-        for(MyDataModel *myd in nsarray)
-        {
-            NSLog(@"Sorted: %f", myd.anyPropertyFloat);
-        }
-    }
+//    //Outputs small sets
+//    if(arraySize <200)
+//    {
+//        for(MyDataModel *myd in nsarray)
+//        {
+//            NSLog(@"Sorted: %f", myd.anyPropertyFloat);
+//        }
+//    }
     
     //Validate sorting order if not output error
     Boolean passed = true;
@@ -148,7 +149,6 @@
     
     [activityIndicator stopAnimating];
 }
-
 
 - (IBAction)condorSortButton:(id)sender {
     
@@ -169,14 +169,14 @@
     double timePassed_ms = [date timeIntervalSinceNow] * -1000.0;
     condorPerformanceLabel.text = [NSString stringWithFormat:@"%.2f ms", timePassed_ms];
     
-    //Outputs small sets
-    if(arraySize <200)
-    {
-        for(MyDataModel *myd in nsarray)
-        {
-            NSLog(@"Sorted: %d", myd.anyPropertyInt);
-        }
-    }
+//    //Outputs small sets
+//    if(arraySize <200)
+//    {
+//        for(MyDataModel *myd in nsarray)
+//        {
+//            NSLog(@"Sorted: %d", myd.anyPropertyInt);
+//        }
+//    }
     
     //Validate sorting order if not output error
     Boolean passed = true;
@@ -210,13 +210,13 @@
         array[i] = (signed int)(value);
     }
     
-    if(arraySize > 100)
-    {
-        for(int i = 0; i < 100; i++)
-        {
-            NSLog(@"Presorted Value:%i", array[i]);
-        }
-    }
+//    if(arraySize > 100)
+//    {
+//        for(int i = 0; i < 100; i++)
+//        {
+//            NSLog(@"Presorted Value:%i", array[i]);
+//        }
+//    }
     
     NSDate *date = [NSDate date];
     [self.condorSort sortSignedIntArray:array withLength:arraySize];
@@ -256,13 +256,13 @@
         array[i] = (unsigned int)(value);
     }
     
-    if(arraySize > 100)
-    {
-        for(int i = 0; i < 100; i++)
-        {
-            NSLog(@"Presorted Value:%i", array[i]);
-        }
-    }
+//    if(arraySize > 100)
+//    {
+//        for(int i = 0; i < 100; i++)
+//        {
+//            NSLog(@"Presorted Value:%i", array[i]);
+//        }
+//    }
     
     NSDate *date = [NSDate date];
     [self.condorSort sortUnsignedIntArray:array withLength:arraySize];
@@ -301,13 +301,13 @@
         array[i] = (float)(value);
     }
     
-    if(arraySize > 100)
-    {
-        for(int i = 0; i < 100; i++)
-        {
-            NSLog(@"Presorted Value:%f", array[i]);
-        }
-    }
+//    if(arraySize > 100)
+//    {
+//        for(int i = 0; i < 100; i++)
+//        {
+//            NSLog(@"Presorted Value:%f", array[i]);
+//        }
+//    }
     
     NSDate *date = [NSDate date];
     [self.condorSort sortFloatArray:array withLength:arraySize];
@@ -333,7 +333,7 @@
     [activityIndicator stopAnimating];
 }
 
-- (IBAction)appleSortFloatButton:(id)sender {
+- (IBAction)appleSortObjectFloatButton:(id)sender {
     
     //Generate an Array of MyDataModel Objects with Random Property values.
     NSMutableArray *nsmarray = [[NSMutableArray alloc] init];
@@ -357,7 +357,7 @@
     [activityIndicator stopAnimating];
 }
 
-- (IBAction)appleSortButton:(id)sender {
+- (IBAction)appleObjectIntSortButton:(id)sender {
     
     //Generate an Array of MyDataModel Objects with Random Property values.
     NSMutableArray *nsmarray = [[NSMutableArray alloc] init];
@@ -381,6 +381,54 @@
     [activityIndicator stopAnimating];
 }
 
+- (IBAction)appleInt32SortButton:(id)sender {
+    
+    arraySize = [arraySizeTextField.text intValue];
+    
+    signed int* array = (signed int*)calloc(arraySize, 4);
+    
+    NSLog(@"Array Size 100");
+    for(int i = 0; i < arraySize/2; i++)
+    {
+        signed int value = ((signed int)arc4random_uniform(21474836));
+        array[i] = (signed int)(value);
+    }
+    for(int i = arraySize/2; i < arraySize; i++)
+    {
+        signed int value = -((signed int)arc4random_uniform(21474836));
+        array[i] = (signed int)(value);
+    }
+    
+    //Simple Timing
+    NSDate *date = [NSDate date];
+    
+    quicksort(array, 0, arraySize);
+    
+    double timePassed_ms = [date timeIntervalSinceNow] * -1000.0;
+    applePerformanceLabel.text = [NSString stringWithFormat:@"%.2f ms", timePassed_ms];
+    arraySizeLabel.text = @"INT32 ARRAY SIZE";
+    
+    Boolean passed = true;
+    for(int i = 1; i < arraySize; i++)
+    {
+        if(array[i] < array[i-1])
+        {
+            NSLog(@"Not Sort %i", i);
+            passed = false;
+            break;
+        }
+    }
+    
+    if(passed == true) NSLog(@"In Order");
+    NSLog(@"Performance: %f", timePassed_ms);
+    free(array);
+    
+    [activityIndicator stopAnimating];
+    
+}
+
+
+
 - (IBAction)keyboardRelease:(id)sender {
     [arraySizeTextField resignFirstResponder];
 }
@@ -390,5 +438,47 @@
 {
     [textField resignFirstResponder];
     return YES;
+}
+
+#pragma mark - QuickSort for non-Object in Apple
+void swap(int *x,int *y)
+{
+    int temp;
+    temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
+int choose_pivot(int i,int j )
+{
+    return((i+j) /2);
+}
+
+void quicksort(int list[],int m,int n)
+{
+    int key,i,j,k;
+    if( m < n)
+    {
+        k = choose_pivot(m,n);
+        swap(&list[m],&list[k]);
+        key = list[m];
+        i = m+1;
+        j = n;
+        while(i <= j)
+        {
+            while((i <= n) && (list[i] <= key))
+                i++;
+            while((j >= m) && (list[j] > key))
+                j--;
+            if( i < j)
+                swap(&list[i],&list[j]);
+        }
+        /* swap two elements */
+        swap(&list[m],&list[j]);
+        
+        /* recursively sort the lesser list */
+        quicksort(list,m,j-1);
+        quicksort(list,j+1,n);
+    }
 }
 @end

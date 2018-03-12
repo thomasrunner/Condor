@@ -47,9 +47,6 @@
 - (IBAction)condorFloatButton:(id)sender;
 
 
-
-- (IBAction)appleSortButton:(id)sender;
-
 - (IBAction)keyboardRelease:(id)sender;
 
 @end
