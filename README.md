@@ -59,12 +59,19 @@ These results are based on version 1, so performance results now are significant
 # Sample Code
 
 It comes with  specific classes:
+
      - CondorSort.h for system types (Boolean, unsigned char, signed char, unsigned short, signed short, unsigned int, signed int and float)
+     
      - CondorNSSort.h for NSArray's with NSNumbers of types listed in CondorSort.
+     
      - CondorObjectSort.h for reverse sort ANY Object.
+     
      - CondorObjectSortInt.h will sort any Object using an Int return selector property
+     
      - CondorObjectSortInt64.h will sort any Object using an Int64 return selector property
+    
      - CondorObjectSortFloat.h will sort any Object using an Float return selector property
+   
      - CondorObjectSortDouble.h will sort any Object using an Double return selector property
      
      EXAMPLE #1 (CondorNSSort)
