@@ -1,8 +1,8 @@
 //
-//    MyDataModel.h
-//    CondorObjectSortDemo
+//    CondorObjectSortDouble.h
+//    Condor
 //
-//    Created by Thomas on 2018-01-13.
+//    Created by Thomas on 2018-02-24.
 //    Copyright © 2018 Thomas Lock. <thomas.lock.personal@gmail.com>
 //
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,21 +29,10 @@
 //
 
 #import <Foundation/Foundation.h>
-//__attribute__((objc_subclassing_restricted))
-@interface MyDataModel : NSObject
+#import "Condor.h"
 
-    //Both Atomic and Nonatomic Property Attribute
-    //Any Property that is returns a long long is valid
-    @property (nonatomic) long long anyPropertyInt64;
+@interface CondorObjectSortDouble : NSObject
 
-    //Any Property that is returns a int is valid
-    @property (atomic) int anyPropertyInt;
-
-    //Any Property that is returns a float is valid
-    @property (atomic) float anyPropertyFloat;
-
-    //Any Property that is returns a double is valid
-    @property (nonatomic) double anyPropertyDouble;
-
+-(NSArray*) sortDoubleObjectArray:(NSArray *) array orderDesc: (BOOL) descending selectorNameAsString : (NSString *) sortProperty;
 
 @end

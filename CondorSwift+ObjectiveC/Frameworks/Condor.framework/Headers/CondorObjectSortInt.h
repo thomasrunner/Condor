@@ -33,7 +33,7 @@
 
 @interface CondorObjectSortInt : NSObject
 
-@property (nonatomic, strong) NSString *sortIntProperty;
+
 
 -(NSArray *) sortSignedIntObjectArray:(NSArray *) array orderDesc: (BOOL) descending selectorNameAsString : (NSString *) sortProperty;
 

@@ -41,5 +41,9 @@ FOUNDATION_EXPORT const unsigned char CondorVersionString[];
 #import <Condor/CondorSort.h>
 #import <Condor/CondorNSSort.h>
 #import <Condor/CondorObjectSort.h>
+
 #import <Condor/CondorObjectSortInt.h>
+#import <Condor/CondorObjectSortInt64.h>
+
 #import <Condor/CondorObjectSortFloat.h>
+#import <Condor/CondorObjectSortDouble.h>

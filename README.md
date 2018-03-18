@@ -1,9 +1,12 @@
 # Condor - 9x Faster than ObjC and 1.5x Faster than SWIFT
-Apple's built-in sorting algorithm implementation is far too slow. Condor is a new Sorting Framework available for both Objective C and Swift in a super easy to use ULTRA LIGHT Framework. Since this Framework was written in ObjC it runs much much slower in SWIFT than ObjC but is still able to outperforms SWIFT.
+Apple's built-in sorting algorithm implementation is far too slow. Condor is a new Sorting Framework available for both Objective C and Swift in a super easy to use ULTRA LIGHT Framework. Since this Framework was written in ObjC it runs much much slower in SWIFT than ObjC but is still able to outperforms SWIFT. A Native Swift version is presently in the works and should be available shortly!!!
 
-Condor supports System Types as well NSNumber types in an NSArray.
+Condor supports System Types, NSNumber, and Object with using a specific properties that returns an Int32, Int64, Float or Double.
 
 **YOU CAN FIND THE FRAMEWORK LOCATED IN THE PROJECT**
+
+UPDATE v1.3.0
+- Added Quicksort to Apple's side of Algorithms and it still loses.
 
 UPDATE v1.2.9 b
 - Added Quicksort to Apple's side of Algorithms and it still loses.
@@ -42,10 +45,27 @@ UPDATE v1.2.1
 UPDATED v1.0.1
 - New Object Sort using CondorObject protocol
 
-It comes with 3 specific classes:
+# Screenshot of GitHub App
+
+<img src="https://thomaslockblog.files.wordpress.com/2018/01/img_1840.png" alt="IMG_1840" width="382" height="679" />
+
+<img src="https://thomaslockblog.files.wordpress.com/2018/01/img_1842.png" alt="IMG_1842" width="382" height="679" />
+
+# Screenshot Comparing other Sorting Algorithms
+
+These results are based on version 1, so performance results now are significantly faster (built in C#)
+<img src="https://thomaslockblog.files.wordpress.com/2018/01/condor_results2.png" alt="condor_results2" width="365" height="434" />
+
+# Sample Code
+
+It comes with  specific classes:
      - CondorSort.h for system types (Boolean, unsigned char, signed char, unsigned short, signed short, unsigned int, signed int and float)
      - CondorNSSort.h for NSArray's with NSNumbers of types listed in CondorSort.
-     - CondorObjectSort.h for sorting ANY Object so long as it implements one of the CondorObject optional Protocols.
+     - CondorObjectSort.h for reverse sort ANY Object.
+     - CondorObjectSortInt.h will sort any Object using an Int return selector property
+     - CondorObjectSortInt64.h will sort any Object using an Int64 return selector property
+     - CondorObjectSortFloat.h will sort any Object using an Float return selector property
+     - CondorObjectSortDouble.h will sort any Object using an Double return selector property
      
      EXAMPLE #1 (CondorNSSort)
      
@@ -75,8 +95,6 @@ It comes with 3 specific classes:
 
      [nsmarray removeAllObjects];
      nsmarray = nil;
-     
-     
      
      EXAMPLE #2 (CondorSort)
      
@@ -117,7 +135,3 @@ It comes with 3 specific classes:
      //NSLog(@"Performance: %f", timePassed_ms);
      
      free(array);
-     
-     EXAMPLE #3 (CondorObjectSort and <CondorObject>)
-     - This example is available as part of the GitHub App
-     

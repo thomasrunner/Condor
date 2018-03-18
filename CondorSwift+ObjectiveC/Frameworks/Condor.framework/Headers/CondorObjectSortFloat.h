@@ -33,7 +33,7 @@
 
 @interface CondorObjectSortFloat : NSObject
 
-@property (nonatomic, strong) NSString *sortFloatProperty;
+
 
 -(NSArray*) sortFloatObjectArray:(NSArray *) array orderDesc: (BOOL) descending selectorNameAsString : (NSString *) sortProperty;
 

@@ -39,14 +39,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *applePerformanceLabel;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
-
-
-- (IBAction)condorSortButton:(id)sender;
-- (IBAction)condorInt32SortButton:(id)sender;
-- (IBAction)condorUInt32Button:(id)sender;
-- (IBAction)condorFloatButton:(id)sender;
-
-
 - (IBAction)keyboardRelease:(id)sender;
 
 @end
