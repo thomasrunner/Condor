@@ -30,12 +30,12 @@
 
 import UIKit
 
-public class MyDataModel  {
+final internal class MyDataModel : NSObject  {
 
-    @objc let condorId : Int;
-    @objc let anyPropertyFloat : Float;
+    internal let condorId : Int;
+    internal let anyPropertyFloat : Float;
     
-    public init(condor : Int, condorf : Float) {
+    internal init(condor : Int, condorf : Float) {
         condorId = condor
         anyPropertyFloat = condorf
         //super.init()

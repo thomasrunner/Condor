@@ -50,8 +50,14 @@
     -(void) sortUnsignedIntArray:(unsigned int*) array withLength:(int) length;
     -(void) sortSignedIntArray:(signed int*) array withLength:(int) length;
 
+    //Int64
+    -(void) sortSignedInt64Array:(long long*) array withLength:(int) length;
+
     //Float
     -(void) sortFloatArray:(float*) array withLength:(int) length;
+
+    //Double
+    -(void) sortDoubleArray:(double*) array withLength:(int) length;
 
 
     #pragma mark - Reverse Order Of Array Methods

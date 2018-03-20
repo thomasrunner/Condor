@@ -134,14 +134,13 @@
     //Simple Timing
     NSDate *date = [NSDate date];
 
-    //FLOAT OBJECT SORTING
+    //DOUBLE OBJECT SORTING
     NSArray *nsarray = [self.condorObjectSortDouble  sortDoubleObjectArray:nsmarray orderDesc:false selectorNameAsString:selectorString];
-    arraySizeLabel.text =@"OBJECT DOUBLE ARRAY SIZE";
     
     //Get Timing Result
     double timePassed_ms = [date timeIntervalSinceNow] * -1000.0;
     condorPerformanceLabel.text = [NSString stringWithFormat:@"%.2f ms", timePassed_ms];
-    
+    arraySizeLabel.text =@"OBJECT DOUBLE ARRAY SIZE";
     //Validate sorting order if not output error
     Boolean passed = true;
     for(int i = 1; i < arraySize-1; i++)
@@ -228,7 +227,6 @@
     
     signed int* array = (signed int*)calloc(arraySize, 4);
     
-    NSLog(@"Array Size 100");
     for(int i = 0; i < arraySize/2; i++)
     {
         signed int value = ((signed int)arc4random_uniform(21474836));
@@ -254,6 +252,57 @@
     double timePassed_ms = [date timeIntervalSinceNow] * -1000.0;
     condorPerformanceLabel.text = [NSString stringWithFormat:@"%.2f ms", timePassed_ms];
     arraySizeLabel.text = @"INT32 ARRAY SIZE";
+    
+    Boolean passed = true;
+    for(int i = 1; i < arraySize; i++)
+    {
+        if(array[i] < array[i-1])
+        {
+            NSLog(@"Not Sort %i", i);
+            passed = false;
+            break;
+        }
+    }
+    
+    if(passed == true) NSLog(@"In Order");
+    NSLog(@"Performance: %f", timePassed_ms);
+    free(array);
+    
+    [activityIndicator stopAnimating];
+}
+
+
+- (IBAction)condorInt64SortButton:(id)sender {
+    
+    arraySize = [arraySizeTextField.text intValue];
+    
+    long long* array = (long long*)calloc(arraySize, 8);
+    
+    for(int i = 0; i < arraySize/2; i++)
+    {
+        long long value = ((long long)arc4random_uniform(2147483600));
+        array[i] = value;
+    }
+    for(int i = arraySize/2; i < arraySize; i++)
+    {
+        long long value = -((long long)arc4random_uniform(2147483600));
+        array[i] = value;
+    }
+    
+    //    if(arraySize > 100)
+    //    {
+    //        for(int i = 0; i < 100; i++)
+    //        {
+    //            NSLog(@"Presorted Value:%i", array[i]);
+    //        }
+    //    }
+    
+    NSDate *date = [NSDate date];
+    [self.condorSort sortSignedInt64Array:array withLength:arraySize];
+    
+    double timePassed_ms = [date timeIntervalSinceNow] * -1000.0;
+    condorPerformanceLabel.text = [NSString stringWithFormat:@"%.2f ms", timePassed_ms];
+    arraySizeLabel.text = @"INT64 ARRAY SIZE";
     
     Boolean passed = true;
     for(int i = 1; i < arraySize; i++)
@@ -299,6 +348,52 @@
     double timePassed_ms = [date timeIntervalSinceNow] * -1000.0;
     condorPerformanceLabel.text = [NSString stringWithFormat:@"%.2f ms", timePassed_ms];
     arraySizeLabel.text = @"FLOAT ARRAY SIZE";
+    
+    Boolean passed = true;
+    for(int i = 1; i < arraySize; i++)
+    {
+        if(array[i] < array[i-1])
+        {
+            NSLog(@"Not Sort %f", array[i]);
+            passed = false;
+            //break;
+        }
+    }
+    
+    if(passed == true) NSLog(@"In Order");
+    NSLog(@"Performance: %f", timePassed_ms);
+    free(array);
+    
+    [activityIndicator stopAnimating];
+}
+
+
+- (IBAction)condorDoubleButton:(id)sender {
+    
+    arraySize = [arraySizeTextField.text intValue];
+    
+    //FLOAT
+    double* array = (double*)calloc(arraySize, sizeof(double));
+    
+    for(int i = 0; i < arraySize; i++)
+    {
+        double value = (double)((arc4random_uniform(21836000 * 2) / 100.0)  - 21836000.0) * M_PI_4 ;
+        array[i] = (double)(value);
+    }
+    
+    //    if(arraySize > 100)
+    //    {
+    //        for(int i = 0; i < 100; i++)
+    //        {
+    //            NSLog(@"Presorted Value:%f", array[i]);
+    //        }
+    //    }
+    
+    NSDate *date = [NSDate date];
+    [self.condorSort sortDoubleArray:array withLength:arraySize];
+    double timePassed_ms = [date timeIntervalSinceNow] * -1000.0;
+    condorPerformanceLabel.text = [NSString stringWithFormat:@"%.2f ms", timePassed_ms];
+    arraySizeLabel.text = @"DOUBLE ARRAY SIZE";
     
     Boolean passed = true;
     for(int i = 1; i < arraySize; i++)
@@ -396,7 +491,6 @@
     
     signed int* array = (signed int*)calloc(arraySize, 4);
     
-    NSLog(@"Array Size 100");
     for(int i = 0; i < arraySize/2; i++)
     {
         signed int value = ((signed int)arc4random_uniform(21474836));
@@ -411,11 +505,49 @@
     //Simple Timing
     NSDate *date = [NSDate date];
     
-    quicksort(array, 0, arraySize);
+    quickSort(array, 0, arraySize-1);
     
     double timePassed_ms = [date timeIntervalSinceNow] * -1000.0;
     applePerformanceLabel.text = [NSString stringWithFormat:@"%.2f ms", timePassed_ms];
-    arraySizeLabel.text = @"INT32 ARRAY SIZE";
+    arraySizeLabel.text = @"QUICKSORT INT32 ARRAY SIZE";
+    
+    Boolean passed = true;
+    for(int i = 1; i < arraySize; i++)
+    {
+        if(array[i] < array[i-1])
+        {
+            NSLog(@"Not Sort %i", i);
+            passed = false;
+            break;
+        }
+    }
+    
+    if(passed == true) NSLog(@"In Order");
+    NSLog(@"Performance: %f", timePassed_ms);
+    free(array);
+    
+    [activityIndicator stopAnimating];
+}
+
+- (IBAction)appleInt32RADIXSortButton:(id)sender {
+    
+    arraySize = [arraySizeTextField.text intValue];
+    signed int* array = (signed int*)calloc(arraySize, 4);
+    
+    for(int i = 0; i < arraySize; i++)
+    {
+        signed int value = ((signed int)arc4random_uniform(21474836));
+        array[i] = (signed int)(value);
+    }
+    
+    //Simple Timing
+    NSDate *date = [NSDate date];
+    
+    radixSort(array,arraySize);
+    
+    double timePassed_ms = [date timeIntervalSinceNow] * -1000.0;
+    applePerformanceLabel.text = [NSString stringWithFormat:@"%.2f ms", timePassed_ms];
+    arraySizeLabel.text = @"RADIX INT32 ARRAY SIZE";
     
     Boolean passed = true;
     for(int i = 1; i < arraySize; i++)
@@ -447,7 +579,7 @@
 }
 
 #pragma mark - QuickSort for non-Object in Apple
-inline void swap(int *x,int *y)
+void swap(int *x,int *y)
 {
     int temp;
     temp = *x;
@@ -455,17 +587,17 @@ inline void swap(int *x,int *y)
     *y = temp;
 }
 
-inline int choose_pivot(int i,int j )
+int choosePivot(int i,int j )
 {
     return((i+j) /2);
 }
 
-void quicksort(int list[],int m,int n)
+void quickSort(int list[],int m,int n)
 {
     int key,i,j,k;
     if( m < n)
     {
-        k = choose_pivot(m,n);
+        k = choosePivot(m,n);
         swap(&list[m],&list[k]);
         key = list[m];
         i = m+1;
@@ -483,8 +615,40 @@ void quicksort(int list[],int m,int n)
         swap(&list[m],&list[j]);
         
         /* recursively sort the lesser list */
-        quicksort(list,m,j-1);
-        quicksort(list,j+1,n);
+        quickSort(list,m,j-1);
+        quickSort(list,j+1,n);
+    }
+}
+
+#pragma mark - RADIX sort
+#define max 10
+
+void radixSort(int *array, int n) {
+    int i, exp = 1, m = 0, bucket[n], temp[n];
+    
+    for(i = 0; i < n; i++) {
+        if(array[i] > m) {
+            m = array[i];
+        }
+    }
+    
+    while((m/exp) > 0) {
+        for (i = 0; i < n; i++) {
+            bucket[i] = 0;
+        }
+        for(i = 0; i < n; i++) {
+            bucket[(array[i] / exp) % 10]++;
+        }
+        for(i = 1; i < n; i++) {
+            bucket[i] += bucket[i-1];
+        }
+        for(i = (n - 1); i >= 0; i--) {
+            temp[--bucket[(array[i] / exp) % 10]] = array[i];
+        }
+        for(i = 0; i < n; i++) {
+            array[i] = temp[i];
+        }
+        exp *= 10;
     }
 }
 
