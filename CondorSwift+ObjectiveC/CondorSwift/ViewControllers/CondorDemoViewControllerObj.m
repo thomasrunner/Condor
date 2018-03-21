@@ -624,7 +624,9 @@ void quickSort(int list[],int m,int n)
 #define max 10
 
 void radixSort(int *array, int n) {
-    int i, exp = 1, m = 0, bucket[n], temp[n];
+    int i, exp = 1, m = 0;
+    int *bucket = (int *) malloc(n * sizeof(int));
+    int *temp = (int *) malloc(n * sizeof(int));
     
     for(i = 0; i < n; i++) {
         if(array[i] > m) {
@@ -650,6 +652,9 @@ void radixSort(int *array, int n) {
         }
         exp *= 10;
     }
+    
+    free(bucket);
+    free(temp);
 }
 
 @end
