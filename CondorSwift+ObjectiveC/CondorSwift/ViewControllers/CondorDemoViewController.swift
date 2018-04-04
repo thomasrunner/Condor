@@ -30,7 +30,7 @@
 
 import UIKit
 import Condor
-import CondorS
+
 
 class CondorDemoViewController: UIViewController {
     
