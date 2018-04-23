@@ -1,22 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="odu-fj-WfH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="odu-fj-WfH">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="HelveticaNeue.ttc">
-            <string>HelveticaNeue</string>
-        </array>
-        <array key="HelveticaNeueLights.ttc">
-            <string>HelveticaNeue-Light</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--SWIFT-->
         <scene sceneID="tne-QT-ifu">
@@ -206,7 +198,7 @@
                                 <state key="normal" title="Condor Objects Int32"/>
                                 <connections>
                                     <action selector="buttonDown:" destination="oyC-sL-3uW" eventType="touchDown" id="9NC-9r-Wea"/>
-                                    <action selector="condorSortButton:" destination="oyC-sL-3uW" eventType="touchUpInside" id="QWw-qg-dtL"/>
+                                    <action selector="condorInt32Button:" destination="oyC-sL-3uW" eventType="touchUpInside" id="A5Y-rq-tgm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p4J-jk-wyg">
@@ -216,7 +208,7 @@
                                 <state key="normal" title="Condor Objects Double"/>
                                 <connections>
                                     <action selector="buttonDown:" destination="oyC-sL-3uW" eventType="touchDown" id="hPZ-Hx-aQx"/>
-                                    <action selector="condorSortFloatButton:" destination="oyC-sL-3uW" eventType="touchUpInside" id="arW-0m-YBC"/>
+                                    <action selector="condorSortDoubleButton:" destination="oyC-sL-3uW" eventType="touchUpInside" id="2fF-dd-PFm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o3q-fP-AZf">

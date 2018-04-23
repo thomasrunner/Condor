@@ -31,7 +31,7 @@
 import UIKit
 import Condor
 
-
+//Swift Version is still experimental with issues related to ABI.
 class CondorDemoViewController: UIViewController {
     
     @IBOutlet var arraySizeLabel: UILabel!
@@ -40,9 +40,7 @@ class CondorDemoViewController: UIViewController {
     @IBOutlet var swiftPerformanceLabel: UILabel!
     
     var array:[MyDataModel] = []
-    
     var arraySize : Int = 0
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,7 +98,7 @@ class CondorDemoViewController: UIViewController {
         buildTestArray()
         
         let d1 = NSDate()
-        //THIS IS AN OBJECTIVE C VERSION A NATIVE SWIFT VERSION IS ABOUT 40-60% FASTER
+        //THIS IS AN OBJECTIVE C VERSION, A NATIVE SWIFT VERSION IS ABOUT 50-70% FASTER
         let selectorString : String = "anyPropertyInt"
 //
         let output = condorSort.sortSignedIntObjectArray(array, orderDesc: false, selectorNameAs: selectorString) as! [MyDataModel]

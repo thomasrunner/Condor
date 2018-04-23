@@ -32,13 +32,39 @@
 #import "MyDataModel.h"
 #import <Condor/Condor.h>
 
+typedef NS_ENUM(int)
+{
+    ObjectDouble,
+    ObjectInt32,
+    ObjectInt64,
+    Int32,
+    Int64,
+    Float,
+    Double
+} SortType;
+
 //Basic Condor Framework Demo
 @interface CondorDemoViewControllerObj()
 {
+    //Condor Sort Type Selected
+    SortType sortType;
+    
+    //Object Sorting Variable
+    NSMutableArray *nsmarray;
+    NSArray *nsarray;
+    
+    //System Type Array Variables
     unsigned int arraySize;
+    signed int* arrayInt;
+    long long* arrayLongLong;
+    float* arrayFloat;
+    double* arrayDouble;
+    
+    //Apple Sort Descriptor
+    NSSortDescriptor *condorDescriptor;
 }
 
-    @property (nonatomic, strong) NSString *sortIntProperty;
+    //Condor Sorting Objects
     @property (strong, nonatomic) CondorObjectSortInt *condorObjectSort;
     @property (strong, nonatomic) CondorObjectSortInt64 *condorObjectInt64Sort;
     @property (strong, nonatomic) CondorObjectSortFloat *condorObjectSortFloat;
@@ -58,19 +84,17 @@
 @synthesize condorObjectSortFloat;
 @synthesize condorObjectInt64Sort;
 @synthesize condorObjectSortDouble;
-@synthesize sortIntProperty;
 
-#pragma mark - Methods
+#pragma mark - ViewController Lifecycle Methods
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //Create an Object of CondorObjectSort
+    //Create an Instance of Object Sort
     condorObjectSort = [[CondorObjectSortInt alloc] init];
     condorSort = [[CondorSort alloc] init];
     condorObjectSortFloat = [[CondorObjectSortFloat alloc] init];
     condorObjectSortDouble = [[CondorObjectSortDouble alloc] init];
     condorObjectInt64Sort = [[CondorObjectSortInt64 alloc] init];
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
@@ -78,8 +102,55 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Text Field
+-(BOOL) textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+- (IBAction)keyboardRelease:(id)sender {
+    [arraySizeTextField resignFirstResponder];
+}
+
+#pragma mark - Condor Sort Methods
 - (IBAction)buttonDown:(id)sender {
     [activityIndicator startAnimating];
+}
+
+- (IBAction)condorSortDoubleButton:(id)sender {
+    sortType = ObjectDouble;
+    [self condorSortUsingType:sortType];
+}
+
+- (IBAction)condorInt32Button:(id)sender {
+    sortType = ObjectInt32;
+    [self condorSortUsingType:sortType];
+}
+
+- (IBAction)condorInt64Button:(id)sender {
+    sortType = ObjectInt64;
+    [self condorSortUsingType:sortType];
+}
+
+- (IBAction)condorInt32SortButton:(id)sender {
+    sortType = Int32;
+    [self condorSortUsingType:sortType];
+}
+
+- (IBAction)condorInt64SortButton:(id)sender {
+    sortType = Int64;
+    [self condorSortUsingType:sortType];
+}
+
+- (IBAction)condorFloatButton:(id)sender {
+    sortType = Float;
+    [self condorSortUsingType:sortType];
+}
+
+- (IBAction)condorDoubleButton:(id)sender {
+    sortType = Double;
+    [self condorSortUsingType:sortType];
 }
 
 #pragma mark - Build Test Object Array
@@ -111,367 +182,328 @@
                 number.anyPropertyInt = (int)arc4random_uniform(256);
                 number.anyPropertyFloat =  -(float)((float)arc4random_uniform(3276800 * 2) * M_PI_2);
                 number.anyPropertyDouble =  -(double)((double)arc4random_uniform(3276800 * 2) * M_PI_2);
-
+                
                 break;
         }
         skipper++;
         if (skipper == 3) skipper = 0;
         
-        //ONLY ONE Thank you Oleg :)
         [array addObject:number];
     }
 }
 
-#pragma mark - Condor Sort Methods
-- (IBAction)condorSortFloatButton:(id)sender {
-
-    //Generate an Array of MyDataModel Objects with Random Property values.
-    NSMutableArray *nsmarray = [[NSMutableArray alloc] init];
-    [self buildTestArray:nsmarray];
+#pragma mark - Condor Sort Using Type
+- (void)condorSortUsingType:(SortType)sort {
     
     NSString *selectorString = @"anyPropertyDouble";
-    
-    //Simple Timing
-    NSDate *date = [NSDate date];
-
-    //DOUBLE OBJECT SORTING
-    NSArray *nsarray = [self.condorObjectSortDouble  sortDoubleObjectArray:nsmarray orderDesc:false selectorNameAsString:selectorString];
-    
-    //Get Timing Result
-    double timePassed_ms = [date timeIntervalSinceNow] * -1000.0;
-    condorPerformanceLabel.text = [NSString stringWithFormat:@"%.2f ms", timePassed_ms];
-    arraySizeLabel.text =@"OBJECT DOUBLE ARRAY SIZE";
-    //Validate sorting order if not output error
-    Boolean passed = true;
-    for(int i = 1; i < arraySize-1; i++)
-    {
-        if([nsarray[i] anyPropertyDouble] < [nsarray[i-1] anyPropertyDouble])
-        {
-            NSLog(@"Not Sort %f and %i", [nsarray[i] anyPropertyDouble], i);
-            passed = false;
-        }
-    }
-    
-    [activityIndicator stopAnimating];
-}
-
-- (IBAction)condorSortButton:(id)sender {
-    
-    //Generate an Array of MyDataModel Objects with Random Property values.
-    NSMutableArray *nsmarray = [[NSMutableArray alloc] init];
-    [self buildTestArray:nsmarray];
-    
-    NSString *selectorString = @"anyPropertyInt";
-    
-    //Simple Timing
-    NSDate *date = [NSDate date];
-    
-    //INT OBJECT SORTING
-    NSArray *nsarray = [self.condorObjectSort sortSignedIntObjectArray:nsmarray orderDesc:false selectorNameAsString:selectorString];
-    
-    //Get Timing Result
-    double timePassed_ms = [date timeIntervalSinceNow] * -1000.0;
-    condorPerformanceLabel.text = [NSString stringWithFormat:@"%.2f ms", timePassed_ms];
-    arraySizeLabel.text = @"OBJECT INT32 ARRAY SIZE";
-    
-    //Validate sorting order if not output error
-    Boolean passed = true;
-    for(int i = 1; i < arraySize-1; i++)
-    {
-        if([nsarray[i] anyPropertyInt] < [nsarray[i-1] anyPropertyInt])
-        {
-            NSLog(@"Not Sort %d and %i", [nsarray[i] anyPropertyInt], i);
-            passed = false;
-        }
-    }
-    
-    [activityIndicator stopAnimating];
-}
-
-- (IBAction)condorInt64Button:(id)sender {
-    
-    //Generate an Array of MyDataModel Objects with Random Property values.
-    NSMutableArray *nsmarray = [[NSMutableArray alloc] init];
-    [self buildTestArray:nsmarray];
-    
-    NSString *selectorString = @"anyPropertyInt64";
-    
-    //Simple Timing
-    NSDate *date = [NSDate date];
-    
-    //INT64 OBJECT SORTING
-    NSArray *nsarray = [self.condorObjectInt64Sort sortSignedInt64ObjectArray:nsmarray orderDesc:false selectorNameAsString:selectorString];
-    
-    //Get Timing Result
-    double timePassed_ms = [date timeIntervalSinceNow] * -1000.0;
-    condorPerformanceLabel.text = [NSString stringWithFormat:@"%.2f ms", timePassed_ms];
-    arraySizeLabel.text = @"OBJECT INT64 ARRAY SIZE";
-    
-    //Validate sorting order if not output error
-    Boolean passed = true;
-    for(int i = 1; i < arraySize-1; i++)
-    {
-        if([nsarray[i] anyPropertyInt64] < [nsarray[i-1] anyPropertyInt64])
-        {
-            NSLog(@"Not Sort %lld and %i", [nsarray[i] anyPropertyInt64], i);
-            passed = false;
-        }
-    }
-    
-    [activityIndicator stopAnimating];
-}
-
-- (IBAction)condorInt32SortButton:(id)sender {
-    
     arraySize = [arraySizeTextField.text intValue];
     
-    signed int* array = (signed int*)calloc(arraySize, 4);
-    
-    for(int i = 0; i < arraySize/2; i++)
-    {
-        signed int value = ((signed int)arc4random_uniform(21474836));
-        array[i] = (signed int)(value);
-    }
-    for(int i = arraySize/2; i < arraySize; i++)
-    {
-        signed int value = -((signed int)arc4random_uniform(21474836));
-        array[i] = (signed int)(value);
-    }
-    
-//    if(arraySize > 100)
-//    {
-//        for(int i = 0; i < 100; i++)
-//        {
-//            NSLog(@"Presorted Value:%i", array[i]);
-//        }
-//    }
-    
+    //Simple Timing
     NSDate *date = [NSDate date];
-    [self.condorSort sortSignedIntArray:array withLength:arraySize];
     
-    double timePassed_ms = [date timeIntervalSinceNow] * -1000.0;
-    condorPerformanceLabel.text = [NSString stringWithFormat:@"%.2f ms", timePassed_ms];
-    arraySizeLabel.text = @"INT32 ARRAY SIZE";
-    
-    Boolean passed = true;
-    for(int i = 1; i < arraySize; i++)
-    {
-        if(array[i] < array[i-1])
-        {
-            NSLog(@"Not Sort %i", i);
-            passed = false;
+    switch (sort) {
+        case ObjectDouble:
+            
+            [self objectArrayInitialization];
+            
+            selectorString = @"anyPropertyDouble";
+            
+            //Simple Timing
+            date = [NSDate date];
+            
+            //DOUBLE OBJECT SORTING
+            nsarray = [self.condorObjectSortDouble  sortDoubleObjectArray:nsmarray orderDesc:false selectorNameAsString:selectorString];
+            
             break;
-        }
-    }
-    
-    if(passed == true) NSLog(@"In Order");
-    NSLog(@"Performance: %f", timePassed_ms);
-    free(array);
-    
-    [activityIndicator stopAnimating];
-}
-
-
-- (IBAction)condorInt64SortButton:(id)sender {
-    
-    arraySize = [arraySizeTextField.text intValue];
-    
-    long long* array = (long long*)calloc(arraySize, 8);
-    
-    for(int i = 0; i < arraySize/2; i++)
-    {
-        long long value = ((long long)arc4random_uniform(2147483600));
-        array[i] = value;
-    }
-    for(int i = arraySize/2; i < arraySize; i++)
-    {
-        long long value = -((long long)arc4random_uniform(2147483600));
-        array[i] = value;
-    }
-    
-    //    if(arraySize > 100)
-    //    {
-    //        for(int i = 0; i < 100; i++)
-    //        {
-    //            NSLog(@"Presorted Value:%i", array[i]);
-    //        }
-    //    }
-    
-    NSDate *date = [NSDate date];
-    [self.condorSort sortSignedInt64Array:array withLength:arraySize];
-    
-    double timePassed_ms = [date timeIntervalSinceNow] * -1000.0;
-    condorPerformanceLabel.text = [NSString stringWithFormat:@"%.2f ms", timePassed_ms];
-    arraySizeLabel.text = @"INT64 ARRAY SIZE";
-    
-    Boolean passed = true;
-    for(int i = 1; i < arraySize; i++)
-    {
-        if(array[i] < array[i-1])
-        {
-            NSLog(@"Not Sort %i", i);
-            passed = false;
+        case ObjectInt64:
+            
+            [self objectArrayInitialization];
+            
+            selectorString = @"anyPropertyInt64";
+            
+            //Simple Timing
+            date = [NSDate date];
+            
+            nsarray = [self.condorObjectInt64Sort sortSignedInt64ObjectArray:nsmarray orderDesc:false selectorNameAsString:selectorString];
+            
             break;
-        }
+            
+        case ObjectInt32:
+            
+            [self objectArrayInitialization];
+            
+            selectorString = @"anyPropertyInt";
+            
+            //Simple Timing
+            date = [NSDate date];
+            
+            //INT OBJECT SORTING
+            nsarray = [self.condorObjectSort sortSignedIntObjectArray:nsmarray orderDesc:false selectorNameAsString:selectorString];
+            
+            break;
+            
+        case Int32:
+            
+            arrayInt = (signed int*)calloc(arraySize, 4);
+            
+            for(int i = 0; i < arraySize/2; i++)
+            {
+                signed int value = ((signed int)arc4random_uniform(21474836));
+                arrayInt[i] = (signed int)(value);
+            }
+            for(int i = arraySize/2; i < arraySize; i++)
+            {
+                signed int value = -((signed int)arc4random_uniform(21474836));
+                arrayInt[i] = (signed int)(value);
+            }
+            
+            //Simple Timing
+            date = [NSDate date];
+            
+            [self.condorSort sortSignedIntArray:arrayInt withLength:arraySize];
+            break;
+            
+        case Int64:
+            
+            arrayLongLong = (long long*)calloc(arraySize, 8);
+            
+            for(int i = 0; i < arraySize/2; i++)
+            {
+                long long value = ((long long)arc4random_uniform(2147483600));
+                arrayLongLong[i] = value;
+            }
+            for(int i = arraySize/2; i < arraySize; i++)
+            {
+                long long value = -((long long)arc4random_uniform(2147483600));
+                arrayLongLong[i] = value;
+            }
+            
+            //Simple Timing
+            date = [NSDate date];
+            
+            [self.condorSort sortSignedInt64Array:arrayLongLong withLength:arraySize];
+            
+            break;
+            
+        case Float:
+            
+            arrayFloat = (float*)calloc(arraySize, 4);
+            
+            for(int i = 0; i < arraySize; i++)
+            {
+                float value = (float)((arc4random_uniform(21836 * 2) / 100.0f)  - 21836.0f);
+                arrayFloat[i] = (float)(value);
+            }
+            
+            //Simple Timing
+            date = [NSDate date];
+            
+            [self.condorSort sortFloatArray:arrayFloat withLength:arraySize];
+            
+            break;
+            
+        case Double:
+            
+            arrayDouble = (double*)calloc(arraySize, sizeof(double));
+            
+            for(int i = 0; i < arraySize; i++)
+            {
+                double value = (double)((arc4random_uniform(21836000 * 2) / 100.0)  - 21836000.0) * M_PI_4 ;
+                arrayDouble[i] = (double)(value);
+            }
+            
+            //Simple Timing
+            date = [NSDate date];
+            
+            [self.condorSort sortDoubleArray:arrayDouble withLength:arraySize];
+            
+            break;
+            
+        default:
+            break;
     }
     
-    if(passed == true) NSLog(@"In Order");
-    NSLog(@"Performance: %f", timePassed_ms);
-    free(array);
+    //Get Timing Result
+    double timePassed_ms = [date timeIntervalSinceNow] * -1000.0;
+    condorPerformanceLabel.text = [NSString stringWithFormat:@"%.2f ms", timePassed_ms];
     
+    [self validateCondorSortResults:sort];
+    NSLog(@"Performance: %f", timePassed_ms);
     [activityIndicator stopAnimating];
 }
 
-- (IBAction)condorFloatButton:(id)sender {
-    
-    arraySize = [arraySizeTextField.text intValue];
-    
-    //FLOAT
-    float* array = (float*)calloc(arraySize, 4);
-
-    for(int i = 0; i < arraySize; i++)
-    {
-        float value = (float)((arc4random_uniform(21836 * 2) / 100.0f)  - 21836.0f);
-        array[i] = (float)(value);
-    }
-    
-//    if(arraySize > 100)
-//    {
-//        for(int i = 0; i < 100; i++)
-//        {
-//            NSLog(@"Presorted Value:%f", array[i]);
-//        }
-//    }
-    
-    NSDate *date = [NSDate date];
-    [self.condorSort sortFloatArray:array withLength:arraySize];
-    double timePassed_ms = [date timeIntervalSinceNow] * -1000.0;
-    condorPerformanceLabel.text = [NSString stringWithFormat:@"%.2f ms", timePassed_ms];
-    arraySizeLabel.text = @"FLOAT ARRAY SIZE";
-    
+#pragma mark - Condor Results Validation Method
+- (void)validateCondorSortResults:(SortType)sort {
     Boolean passed = true;
-    for(int i = 1; i < arraySize; i++)
-    {
-        if(array[i] < array[i-1])
-        {
-            NSLog(@"Not Sort %f", array[i]);
-            passed = false;
-            //break;
-        }
+    
+    switch (sort) {
+        case ObjectDouble:
+            
+            arraySizeLabel.text =@"OBJECT DOUBLE ARRAY SIZE";
+            
+            //Validate sorting order if not output error
+            for(int i = 1; i < arraySize-1; i++)
+            {
+                if([nsarray[i] anyPropertyDouble] < [nsarray[i-1] anyPropertyDouble])
+                {
+                    NSLog(@"Not Sort %f and %i", [nsarray[i] anyPropertyDouble], i);
+                    passed = false;
+                }
+            }
+            
+            break;
+        case ObjectInt64:
+            
+            arraySizeLabel.text = @"OBJECT INT64 ARRAY SIZE";
+            
+            //Validate sorting order if not output error
+            Boolean passed = true;
+            for(int i = 1; i < arraySize-1; i++)
+            {
+                if([nsarray[i] anyPropertyInt64] < [nsarray[i-1] anyPropertyInt64])
+                {
+                    NSLog(@"Not Sort %lld and %i", [nsarray[i] anyPropertyInt64], i);
+                    passed = false;
+                }
+            }
+            
+            break;
+            
+        case ObjectInt32:
+            
+            arraySizeLabel.text = @"OBJECT INT32 ARRAY SIZE";
+            
+            //Validate sorting order if not output error
+            for(int i = 1; i < arraySize-1; i++)
+            {
+                if([nsarray[i] anyPropertyInt] < [nsarray[i-1] anyPropertyInt])
+                {
+                    NSLog(@"Not Sort %d and %i", [nsarray[i] anyPropertyInt], i);
+                    passed = false;
+                }
+            }
+            
+            break;
+            
+        case Int32:
+            
+            arraySizeLabel.text = @"INT32 ARRAY SIZE";
+            
+            passed = true;
+            for(int i = 1; i < arraySize; i++)
+            {
+                if(arrayInt[i] < arrayInt[i-1])
+                {
+                    NSLog(@"Not Sort %i", i);
+                    passed = false;
+                    break;
+                }
+            }
+            
+            free(arrayInt);
+            break;
+            
+        case Int64:
+            
+            arraySizeLabel.text = @"INT64 ARRAY SIZE";
+            
+            passed = true;
+            for(int i = 1; i < arraySize; i++)
+            {
+                if(arrayLongLong[i] < arrayLongLong[i-1])
+                {
+                    NSLog(@"Not Sort %i", i);
+                    passed = false;
+                    break;
+                }
+            }
+            
+            free(arrayLongLong);
+            break;
+            
+        case Float:
+            
+            arraySizeLabel.text = @"FLOAT ARRAY SIZE";
+            
+            passed = true;
+            for(int i = 1; i < arraySize; i++)
+            {
+                if(arrayFloat[i] < arrayFloat[i-1])
+                {
+                    NSLog(@"Not Sort %f", arrayFloat[i]);
+                    passed = false;
+                    //break;
+                }
+            }
+            
+            free(arrayFloat);
+            break;
+            
+        case Double:
+            
+            arraySizeLabel.text = @"DOUBLE ARRAY SIZE";
+            
+            passed = true;
+            for(int i = 1; i < arraySize; i++)
+            {
+                if(arrayDouble[i] < arrayDouble[i-1])
+                {
+                    NSLog(@"Not Sort %f", arrayDouble[i]);
+                    passed = false;
+                    //break;
+                }
+            }
+            
+            free(arrayDouble);
+            break;
+            
+        default:
+            break;
     }
     
     if(passed == true) NSLog(@"In Order");
-    NSLog(@"Performance: %f", timePassed_ms);
-    free(array);
-    
-    [activityIndicator stopAnimating];
-}
-
-
-- (IBAction)condorDoubleButton:(id)sender {
-    
-    arraySize = [arraySizeTextField.text intValue];
-    
-    //FLOAT
-    double* array = (double*)calloc(arraySize, sizeof(double));
-    
-    for(int i = 0; i < arraySize; i++)
-    {
-        double value = (double)((arc4random_uniform(21836000 * 2) / 100.0)  - 21836000.0) * M_PI_4 ;
-        array[i] = (double)(value);
-    }
-    
-    //    if(arraySize > 100)
-    //    {
-    //        for(int i = 0; i < 100; i++)
-    //        {
-    //            NSLog(@"Presorted Value:%f", array[i]);
-    //        }
-    //    }
-    
-    NSDate *date = [NSDate date];
-    [self.condorSort sortDoubleArray:array withLength:arraySize];
-    double timePassed_ms = [date timeIntervalSinceNow] * -1000.0;
-    condorPerformanceLabel.text = [NSString stringWithFormat:@"%.2f ms", timePassed_ms];
-    arraySizeLabel.text = @"DOUBLE ARRAY SIZE";
-    
-    Boolean passed = true;
-    for(int i = 1; i < arraySize; i++)
-    {
-        if(array[i] < array[i-1])
-        {
-            NSLog(@"Not Sort %f", array[i]);
-            passed = false;
-            //break;
-        }
-    }
-    
-    if(passed == true) NSLog(@"In Order");
-    NSLog(@"Performance: %f", timePassed_ms);
-    free(array);
-    
-    [activityIndicator stopAnimating];
 }
 
 #pragma mark - Apple Sort Methods
 - (IBAction)appleSortObjectDoubleButton:(id)sender {
     
-    //Generate an Array of MyDataModel Objects with Random Property values.
-    NSMutableArray *nsmarray = [[NSMutableArray alloc] init];
-    [self buildTestArray:nsmarray];
+    [self objectArrayInitialization];
     
     arraySizeLabel.text = @"OBJECT DOUBLE ARRAY SIZE";
 
-    NSSortDescriptor *condorDescriptor = [[NSSortDescriptor alloc] initWithKey:@"anyPropertyDouble" ascending:YES];
+    condorDescriptor = [[NSSortDescriptor alloc] initWithKey:@"anyPropertyDouble" ascending:YES];
     NSArray *sortDescriptors = @[condorDescriptor];
     
-    //Simple Timing
-    NSDate *date = [NSDate date];
-    
-    //Apple Sorting Algorithm
-    __unused NSArray *nsarray = [nsmarray sortedArrayUsingDescriptors:sortDescriptors];
-    
-    //Get Timing Result
-    double timePassed_ms = [date timeIntervalSinceNow] * -1000.0;
-    applePerformanceLabel.text = [NSString stringWithFormat:@"%.2f ms", timePassed_ms];
-    
-    [activityIndicator stopAnimating];
+    [self appleSort:sortDescriptors];
 }
 
 - (IBAction)appleObjectIntSortButton:(id)sender {
     
-    //Generate an Array of MyDataModel Objects with Random Property values.
-    NSMutableArray *nsmarray = [[NSMutableArray alloc] init];
-    [self buildTestArray:nsmarray];
+    [self objectArrayInitialization];
     
     arraySizeLabel.text = @"OBJECT INT32 ARRAY SIZE";
     
     NSSortDescriptor *condorDescriptor = [[NSSortDescriptor alloc] initWithKey:@"anyPropertyInt" ascending:YES];
     NSArray *sortDescriptors = @[condorDescriptor];
     
-    //Simple Timing
-    NSDate *date = [NSDate date];
-    
-    //Apple Sorting Algorithm
-    __unused NSArray *nsarray = [nsmarray sortedArrayUsingDescriptors:sortDescriptors];
-    
-    //Get Timing Result
-    double timePassed_ms = [date timeIntervalSinceNow] * -1000.0;
-    applePerformanceLabel.text = [NSString stringWithFormat:@"%.2f ms", timePassed_ms];
-
-    [activityIndicator stopAnimating];
+    [self appleSort:sortDescriptors];
 }
 
 - (IBAction)appleObjectInt64SortButton:(id)sender {
-    //Generate an Array of MyDataModel Objects with Random Property values.
-    NSMutableArray *nsmarray = [[NSMutableArray alloc] init];
-    [self buildTestArray:nsmarray];
+    
+    [self objectArrayInitialization];
     
     arraySizeLabel.text = @"OBJECT INT64 ARRAY SIZE";
     
     NSSortDescriptor *condorDescriptor = [[NSSortDescriptor alloc] initWithKey:@"anyPropertyInt64" ascending:YES];
     NSArray *sortDescriptors = @[condorDescriptor];
     
+    [self appleSort:sortDescriptors];
+}
+
+#pragma mark - Apple Sort Using Descriptor
+- (void)appleSort:(NSArray *)sortDescriptors {
+    
     //Simple Timing
     NSDate *date = [NSDate date];
     
@@ -485,6 +517,14 @@
     [activityIndicator stopAnimating];
 }
 
+#pragma mark - Apple Sort Array Initialization Method
+- (void)objectArrayInitialization {
+    //Generate an Array of MyDataModel Objects with Random Property values.
+    nsmarray = [[NSMutableArray alloc] init];
+    [self buildTestArray:nsmarray];
+}
+
+#pragma mark - RADIX and QuickSort C Methods
 - (IBAction)appleInt32SortButton:(id)sender {
     
     arraySize = [arraySizeTextField.text intValue];
@@ -567,18 +607,7 @@
     [activityIndicator stopAnimating];
 }
 
-- (IBAction)keyboardRelease:(id)sender {
-    [arraySizeTextField resignFirstResponder];
-}
-
-#pragma mark - Text Field Delegate
--(BOOL) textFieldShouldReturn:(UITextField *)textField
-{
-    [textField resignFirstResponder];
-    return YES;
-}
-
-#pragma mark - QuickSort for non-Object in Apple
+#pragma mark - QuickSort function
 void swap(int *x,int *y)
 {
     int temp;
@@ -620,9 +649,8 @@ void quickSort(int list[],int m,int n)
     }
 }
 
-#pragma mark - RADIX sort
+#pragma mark - RADIX Sort function
 #define max 10
-
 void radixSort(int *array, int n) {
     int i, exp = 1, m = 0;
     int *bucket = (int *) malloc(n * sizeof(int));
