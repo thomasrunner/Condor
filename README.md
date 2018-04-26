@@ -1,7 +1,7 @@
 # Condor - Upto 9x Faster than ObjC (Scalable Big Data Sorting)
-Apple's built-in sorting algorithm implementation is far too slow. Condor is a new Sorting Framework available for both Objective C and Swift in a super easy to use ULTRA LIGHT Framework. Since this Framework was written in ObjC it runs much much slower in SWIFT than ObjC but is still able to outperforms SWIFT. A Native Swift version is presently in the works and should be available shortly!!!
+Apple's built-in sorting algorithm implementation is far too slow. Condor is a new Sorting Framework available for both Objective C and Swift in a super easy to use ULTRA LIGHT Framework. Since this Framework was written in ObjC it runs much much slower in SWIFT than ObjC but is still able to outperforms SWIFT. A Native Swift version is presently in the works and should be available shortly!
 
-This Framework is ideal for any sorting methods but really shines when it comes to Big Data Sets in the billions by not only being extremely fast, it also utilizes less than 4MB of memory (average more like < 1MB) regardless of data set format or size.
+This Framework is ideal for any sorting methods but really shines when it comes to Big Data Sets in the billions by not only being extremely fast, it also utilizes less than 4MB of memory (average more like < 1MB in addition to the sorting array) regardless of data set format or size. Space O(k+N) where k is less 4MB and Time of O(k*N) where k is between 2 and 16.
 
 Condor supports System Types, NSNumber, and Object with using a specific properties that returns an Int32, Int64, Float or Double.
 
