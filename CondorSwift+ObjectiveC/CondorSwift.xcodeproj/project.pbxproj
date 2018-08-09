@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		E946A78020185A44005A80CA /* CondorDemoViewControllerObj.m in Sources */ = {isa = PBXBuildFile; fileRef = E946A77F20185A44005A80CA /* CondorDemoViewControllerObj.m */; };
 		E946A78320185C52005A80CA /* MyDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E946A78120185C52005A80CA /* MyDataModel.m */; };
-		E95BDF6F20ED88850040D38F /* Condor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E95BDF6D20ED882D0040D38F /* Condor.framework */; };
-		E95BDF7020ED88850040D38F /* Condor.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E95BDF6D20ED882D0040D38F /* Condor.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E95BDF7720ED91CA0040D38F /* Condor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E95BDF7520ED91B30040D38F /* Condor.framework */; };
+		E95BDF7820ED91CA0040D38F /* Condor.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E95BDF7520ED91B30040D38F /* Condor.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E9D159E72017FB0D00D69908 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D159E62017FB0D00D69908 /* AppDelegate.swift */; };
 		E9D159EC2017FB0D00D69908 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9D159EA2017FB0D00D69908 /* Main.storyboard */; };
 		E9D159EE2017FB0D00D69908 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9D159ED2017FB0D00D69908 /* Assets.xcassets */; };
@@ -26,7 +26,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E95BDF7020ED88850040D38F /* Condor.framework in Embed Frameworks */,
+				E95BDF7820ED91CA0040D38F /* Condor.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -39,7 +39,7 @@
 		E946A78120185C52005A80CA /* MyDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDataModel.m; sourceTree = "<group>"; };
 		E946A78220185C52005A80CA /* MyDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDataModel.h; sourceTree = "<group>"; };
 		E946A79B20185F4B005A80CA /* CondorSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CondorSwift-Bridging-Header.h"; sourceTree = "<group>"; };
-		E95BDF6D20ED882D0040D38F /* Condor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Condor.framework; sourceTree = "<group>"; };
+		E95BDF7520ED91B30040D38F /* Condor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Condor.framework; sourceTree = "<group>"; };
 		E9D159E32017FB0D00D69908 /* CondorSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CondorSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9D159E62017FB0D00D69908 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9D159EB2017FB0D00D69908 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -55,7 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E95BDF6F20ED88850040D38F /* Condor.framework in Frameworks */,
+				E95BDF7720ED91CA0040D38F /* Condor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,7 +95,7 @@
 		E9D159F82017FB1600D69908 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E95BDF6D20ED882D0040D38F /* Condor.framework */,
+				E95BDF7520ED91B30040D38F /* Condor.framework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
