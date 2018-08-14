@@ -95,6 +95,8 @@ typedef NS_ENUM(int)
     condorObjectSortFloat = [[CondorObjectSortFloat alloc] init];
     condorObjectSortDouble = [[CondorObjectSortDouble alloc] init];
     condorObjectInt64Sort = [[CondorObjectSortInt64 alloc] init];
+    
+    NSLog(@"%d",(int)[[NSProcessInfo processInfo] processorCount]);
 }
 
 - (void)didReceiveMemoryWarning {
