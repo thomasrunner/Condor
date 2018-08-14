@@ -7,6 +7,9 @@ Condor supports System Types, NSNumber, and Object with using a specific propert
 
 **YOU CAN FIND THE FRAMEWORK LOCATED IN THE PROJECT**
 
+UPDATE v1.3.2
+- Added support for upto 64 CPU's
+
 UPDATE v1.3.1
 - Added RADIX to Apple's side of Algorithms and it still loses.
 - Added Object Int64 and Double sorting
