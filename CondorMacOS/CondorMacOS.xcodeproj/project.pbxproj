@@ -13,8 +13,8 @@
 		E946A88D201D7579005A80CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E946A88B201D7579005A80CA /* Main.storyboard */; };
 		E946A890201D7579005A80CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E946A88F201D7579005A80CA /* main.m */; };
 		E946A89E201D76AB005A80CA /* MyDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E946A89D201D76AB005A80CA /* MyDataModel.m */; };
-		E9FC25532123CC6900EA6E64 /* CondorMacOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9FC25512123CC6500EA6E64 /* CondorMacOS.framework */; };
-		E9FC25542123CC6900EA6E64 /* CondorMacOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E9FC25512123CC6500EA6E64 /* CondorMacOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E9FC25612124EC4000EA6E64 /* CondorMacOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9FC255F2124EC3A00EA6E64 /* CondorMacOS.framework */; };
+		E9FC25622124EC4000EA6E64 /* CondorMacOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E9FC255F2124EC3A00EA6E64 /* CondorMacOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +24,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E9FC25542123CC6900EA6E64 /* CondorMacOS.framework in Embed Frameworks */,
+				E9FC25622124EC4000EA6E64 /* CondorMacOS.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -44,7 +44,7 @@
 		E946A891201D7579005A80CA /* CondorMacOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CondorMacOS.entitlements; sourceTree = "<group>"; };
 		E946A89C201D76AB005A80CA /* MyDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyDataModel.h; sourceTree = "<group>"; };
 		E946A89D201D76AB005A80CA /* MyDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyDataModel.m; sourceTree = "<group>"; };
-		E9FC25512123CC6500EA6E64 /* CondorMacOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CondorMacOS.framework; sourceTree = "<group>"; };
+		E9FC255F2124EC3A00EA6E64 /* CondorMacOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CondorMacOS.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9FC25532123CC6900EA6E64 /* CondorMacOS.framework in Frameworks */,
+				E9FC25612124EC4000EA6E64 /* CondorMacOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,7 +97,7 @@
 		E9C1218C2062D38B00DF105B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E9FC25512123CC6500EA6E64 /* CondorMacOS.framework */,
+				E9FC255F2124EC3A00EA6E64 /* CondorMacOS.framework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
