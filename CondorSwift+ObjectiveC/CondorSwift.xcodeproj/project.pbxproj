@@ -16,6 +16,7 @@
 		E9D15A042017FC1100D69908 /* CondorDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D15A032017FC1100D69908 /* CondorDemoViewController.swift */; };
 		E9D15A0720180A7600D69908 /* MyDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D15A0620180A7600D69908 /* MyDataModel.swift */; };
 		E9FC25502123CC4200EA6E64 /* Condor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9FC254F2123CC4200EA6E64 /* Condor.framework */; };
+		E9FC25562124502E00EA6E64 /* Condor.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E9FC254F2123CC4200EA6E64 /* Condor.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				E9FC25562124502E00EA6E64 /* Condor.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
