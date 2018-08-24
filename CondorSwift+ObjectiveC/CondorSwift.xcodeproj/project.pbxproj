@@ -15,9 +15,8 @@
 		E9D159F12017FB0D00D69908 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9D159EF2017FB0D00D69908 /* LaunchScreen.storyboard */; };
 		E9D15A042017FC1100D69908 /* CondorDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D15A032017FC1100D69908 /* CondorDemoViewController.swift */; };
 		E9D15A0720180A7600D69908 /* MyDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D15A0620180A7600D69908 /* MyDataModel.swift */; };
-		E9FC255C2124EB6E00EA6E64 /* Condor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9FC255B2124EB6E00EA6E64 /* Condor.framework */; };
-		E9FC255D2124EB7000EA6E64 /* Condor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9FC255B2124EB6E00EA6E64 /* Condor.framework */; };
-		E9FC255E2124EB7000EA6E64 /* Condor.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E9FC255B2124EB6E00EA6E64 /* Condor.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E9FC2587212FAF0800EA6E64 /* Condor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9FC2585212FAEF300EA6E64 /* Condor.framework */; };
+		E9FC2588212FAF0800EA6E64 /* Condor.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E9FC2585212FAEF300EA6E64 /* Condor.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,7 +26,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E9FC255E2124EB7000EA6E64 /* Condor.framework in Embed Frameworks */,
+				E9FC2588212FAF0800EA6E64 /* Condor.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -48,7 +47,7 @@
 		E9D159F22017FB0E00D69908 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9D15A032017FC1100D69908 /* CondorDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CondorDemoViewController.swift; sourceTree = "<group>"; };
 		E9D15A0620180A7600D69908 /* MyDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDataModel.swift; sourceTree = "<group>"; };
-		E9FC255B2124EB6E00EA6E64 /* Condor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Condor.framework; sourceTree = "<group>"; };
+		E9FC2585212FAEF300EA6E64 /* Condor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Condor.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9FC255C2124EB6E00EA6E64 /* Condor.framework in Frameworks */,
-				E9FC255D2124EB7000EA6E64 /* Condor.framework in Frameworks */,
+				E9FC2587212FAF0800EA6E64 /* Condor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,7 +95,7 @@
 		E9D159F82017FB1600D69908 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E9FC255B2124EB6E00EA6E64 /* Condor.framework */,
+				E9FC2585212FAEF300EA6E64 /* Condor.framework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";

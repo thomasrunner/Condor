@@ -11,6 +11,9 @@ Condor supports System Types, NSNumber, and Object with using a specific propert
 
 **YOU CAN FIND THE FRAMEWORK LOCATED IN THE PROJECT**
 
+UPDATE v1.3.4
+- better utilization of CPU's for concurrency processing.
+
 UPDATE v1.3.2
 - Added support for upto 64 CPU's
 
