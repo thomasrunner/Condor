@@ -215,6 +215,8 @@ typedef NS_ENUM(int)
             
             //DOUBLE OBJECT SORTING
             nsarray = [self.condorObjectSortDouble  sortDoubleObjectArray:nsmarray orderDesc:false selectorNameAsString:selectorString];
+//            self.condorObjectSortDouble = nil;
+//            nsmarray = nil;
             
             break;
         case ObjectInt64:
