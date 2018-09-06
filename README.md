@@ -11,6 +11,9 @@ Condor supports System Types, NSNumber, and Object with using a specific propert
 
 **YOU CAN FIND THE FRAMEWORK LOCATED IN THE PROJECT**
 
+UPDATE v1.3.5
+- This update removes ARC boosting overall performance as well as updating method calls to be faster. With this release you can reach speeds upto 13x faster than objc sorting.
+
 UPDATE v1.3.4
 - better utilization of CPU's for concurrency processing.
 
