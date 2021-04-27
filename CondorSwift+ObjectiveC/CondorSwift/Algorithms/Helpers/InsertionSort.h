@@ -1,5 +1,5 @@
 //
-//    Condor.h
+//    InsertionSort.h
 //    Condor
 //
 //    Created by Thomas on 2018-01-13.
@@ -25,25 +25,19 @@
 
 //    Copying and distribution of this file, with or without modification,
 //    are permitted in any medium without royalty provided the copyright
-//    notice and tUIKithis notice are preserved.
+//    notice and this notice are preserved.
 //
 
 #import <Foundation/Foundation.h>
 
-//! Project version number for Condor.
-FOUNDATION_EXPORT double CondorVersionNumber;
+@interface InsertionSort : NSObject
 
-//! Project version string for Condor.
-FOUNDATION_EXPORT const unsigned char CondorVersionString[];
+-(void) sortArray:(unsigned char*) array withLength:(int)length;
+-(void) sortArray32:(unsigned int*) array withLength:(int)length;
+-(void) sortArray32:(unsigned int*) array withLength:(int)length fromLow:(int)low toHigh:(int) high;
+-(void) sortArrayUnsignedShort:(unsigned short *) array withLength:(int)length fromLow:(int) low toHigh:(int) high;
+-(void) sortArraySignedShort:(signed short*) array withLength:(int)length fromLow:(int) low toHigh:(int) high;
+-(void) sortArraySignedInt:(signed int*) array withLength:(int)length fromLow:(int) low toHigh:(int) high;
+-(void) sortArrayFloat:(float*) array withLength:(int)length fromLow:(int) low toHigh:(int) high;
 
-// In this header, you should import all the public headers of your framework using statements like #import <Condor/PublicHeader.h>
-
-#import <Condor/CondorSort.h>
-#import <Condor/CondorNSSort.h>
-#import <Condor/CondorObjectSort.h>
-
-#import <Condor/CondorObjectSortInt.h>
-#import <Condor/CondorObjectSortInt64.h>
-
-#import <Condor/CondorObjectSortFloat.h>
-#import <Condor/CondorObjectSortDouble.h>
+@end

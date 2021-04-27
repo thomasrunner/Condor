@@ -29,7 +29,7 @@
 //
 
 import UIKit
-import Condor
+
 
 //Swift Version is still experimental with issues related to ABI.
 class CondorDemoViewController: UIViewController {
@@ -92,22 +92,22 @@ class CondorDemoViewController: UIViewController {
     @IBAction func condorSortButton(_ sender: Any){
         
 //        let condorSort = CondorSObjectSort<MyDataModel>()
-        let condorSort = CondorObjectSortInt()
+//        let condorSort = CondorObjectSortInt()
 //        let condorSortFloat = CondorObjectSortFloat()
-        array = []
-        buildTestArray()
-        
-        let d1 = NSDate()
-        //THIS IS AN OBJECTIVE C VERSION, A NATIVE SWIFT VERSION IS ABOUT 50-70% FASTER
-        let selectorString : String = "anyPropertyInt"
+//        array = []
+//        buildTestArray()
 //
-        let output = condorSort.sortSignedIntObjectArray(array, orderDesc: false, selectorNameAs: selectorString) as! [MyDataModel]
+//        let d1 = NSDate()
+//        //THIS IS AN OBJECTIVE C VERSION, A NATIVE SWIFT VERSION IS ABOUT 50-70% FASTER
+//        let selectorString : String = "anyPropertyInt"
+//
+//        let output = condorSort.sortSignedIntObjectArray(array, orderDesc: false, selectorNameAs: selectorString) as! [MyDataModel]
 //        let output = condorSort.sort(array:array, descending: false, property: { Int32($0.condorId) })
 //        let output = condorSort.sort(array: array, descending: false, property: { Int32($0.condorId) })
         
-        print("Performance ",d1.timeIntervalSinceNow * -1000)
-        condorPerformanceLabel.text = String(format:"%0.2f" ,d1.timeIntervalSinceNow * -1000) + "ms"
-        
+//        print("Performance ",d1.timeIntervalSinceNow * -1000)
+//        condorPerformanceLabel.text = String(format:"%0.2f" ,d1.timeIntervalSinceNow * -1000) + "ms"
+//
 //        var passed : Bool = true
 //        var countErrors : Int = 0
 //        for i in 1..<array.count

@@ -9,14 +9,21 @@
 /* Begin PBXBuildFile section */
 		E946A78020185A44005A80CA /* CondorDemoViewControllerObj.m in Sources */ = {isa = PBXBuildFile; fileRef = E946A77F20185A44005A80CA /* CondorDemoViewControllerObj.m */; };
 		E946A78320185C52005A80CA /* MyDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E946A78120185C52005A80CA /* MyDataModel.m */; };
-		E9C0B7432140AFEE00CDA1DD /* Condor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9C0B7412140AFEA00CDA1DD /* Condor.framework */; };
-		E9C0B7442140AFEE00CDA1DD /* Condor.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E9C0B7412140AFEA00CDA1DD /* Condor.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E9D159E72017FB0D00D69908 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D159E62017FB0D00D69908 /* AppDelegate.swift */; };
 		E9D159EC2017FB0D00D69908 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9D159EA2017FB0D00D69908 /* Main.storyboard */; };
 		E9D159EE2017FB0D00D69908 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9D159ED2017FB0D00D69908 /* Assets.xcassets */; };
 		E9D159F12017FB0D00D69908 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9D159EF2017FB0D00D69908 /* LaunchScreen.storyboard */; };
 		E9D15A042017FC1100D69908 /* CondorDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D15A032017FC1100D69908 /* CondorDemoViewController.swift */; };
 		E9D15A0720180A7600D69908 /* MyDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D15A0620180A7600D69908 /* MyDataModel.swift */; };
+		E9E2C5B9263716FA008D2811 /* CondorObjectSort.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E2C5A5263716FA008D2811 /* CondorObjectSort.m */; };
+		E9E2C5BA263716FA008D2811 /* CondorNSSort.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E2C5A6263716FA008D2811 /* CondorNSSort.m */; };
+		E9E2C5BB263716FA008D2811 /* CondorSort.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E2C5A7263716FA008D2811 /* CondorSort.m */; };
+		E9E2C5BC263716FA008D2811 /* CondorObjectSortDouble.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E2C5AC263716FA008D2811 /* CondorObjectSortDouble.m */; };
+		E9E2C5BD263716FA008D2811 /* CondorObjectSortInt.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E2C5AF263716FA008D2811 /* CondorObjectSortInt.m */; };
+		E9E2C5BE263716FA008D2811 /* InsertionSort.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E2C5B0263716FA008D2811 /* InsertionSort.m */; };
+		E9E2C5BF263716FA008D2811 /* QuickSort.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E2C5B1263716FA008D2811 /* QuickSort.m */; };
+		E9E2C5C0263716FA008D2811 /* CondorObjectSortFloat.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E2C5B2263716FA008D2811 /* CondorObjectSortFloat.m */; };
+		E9E2C5C1263716FA008D2811 /* CondorObjectSortInt64.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E2C5B3263716FA008D2811 /* CondorObjectSortInt64.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,7 +33,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E9C0B7442140AFEE00CDA1DD /* Condor.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -39,7 +45,6 @@
 		E946A78120185C52005A80CA /* MyDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDataModel.m; sourceTree = "<group>"; };
 		E946A78220185C52005A80CA /* MyDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDataModel.h; sourceTree = "<group>"; };
 		E946A79B20185F4B005A80CA /* CondorSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CondorSwift-Bridging-Header.h"; sourceTree = "<group>"; };
-		E9C0B7412140AFEA00CDA1DD /* Condor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Condor.framework; sourceTree = "<group>"; };
 		E9D159E32017FB0D00D69908 /* CondorSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CondorSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9D159E62017FB0D00D69908 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9D159EB2017FB0D00D69908 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -48,6 +53,26 @@
 		E9D159F22017FB0E00D69908 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9D15A032017FC1100D69908 /* CondorDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CondorDemoViewController.swift; sourceTree = "<group>"; };
 		E9D15A0620180A7600D69908 /* MyDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDataModel.swift; sourceTree = "<group>"; };
+		E9E2C5A3263716FA008D2811 /* CondorSort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CondorSort.h; sourceTree = "<group>"; };
+		E9E2C5A4263716FA008D2811 /* CondorNSSort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CondorNSSort.h; sourceTree = "<group>"; };
+		E9E2C5A5263716FA008D2811 /* CondorObjectSort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CondorObjectSort.m; sourceTree = "<group>"; };
+		E9E2C5A6263716FA008D2811 /* CondorNSSort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CondorNSSort.m; sourceTree = "<group>"; };
+		E9E2C5A7263716FA008D2811 /* CondorSort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CondorSort.m; sourceTree = "<group>"; };
+		E9E2C5A9263716FA008D2811 /* InsertionSort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InsertionSort.h; sourceTree = "<group>"; };
+		E9E2C5AA263716FA008D2811 /* CondorObjectSortInt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CondorObjectSortInt.h; sourceTree = "<group>"; };
+		E9E2C5AB263716FA008D2811 /* QuickSort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickSort.h; sourceTree = "<group>"; };
+		E9E2C5AC263716FA008D2811 /* CondorObjectSortDouble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CondorObjectSortDouble.m; sourceTree = "<group>"; };
+		E9E2C5AD263716FA008D2811 /* CondorObjectSortInt64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CondorObjectSortInt64.h; sourceTree = "<group>"; };
+		E9E2C5AE263716FA008D2811 /* CondorObjectSortFloat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CondorObjectSortFloat.h; sourceTree = "<group>"; };
+		E9E2C5AF263716FA008D2811 /* CondorObjectSortInt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CondorObjectSortInt.m; sourceTree = "<group>"; };
+		E9E2C5B0263716FA008D2811 /* InsertionSort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InsertionSort.m; sourceTree = "<group>"; };
+		E9E2C5B1263716FA008D2811 /* QuickSort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuickSort.m; sourceTree = "<group>"; };
+		E9E2C5B2263716FA008D2811 /* CondorObjectSortFloat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CondorObjectSortFloat.m; sourceTree = "<group>"; };
+		E9E2C5B3263716FA008D2811 /* CondorObjectSortInt64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CondorObjectSortInt64.m; sourceTree = "<group>"; };
+		E9E2C5B4263716FA008D2811 /* CondorObjectSortDouble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CondorObjectSortDouble.h; sourceTree = "<group>"; };
+		E9E2C5B5263716FA008D2811 /* CondorObjectSort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CondorObjectSort.h; sourceTree = "<group>"; };
+		E9E2C5B7263716FA008D2811 /* CondorObjectProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CondorObjectProtocol.h; sourceTree = "<group>"; };
+		E9E2C5B8263716FA008D2811 /* Condor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Condor.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +80,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9C0B7432140AFEE00CDA1DD /* Condor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +108,9 @@
 			children = (
 				E9D159F22017FB0E00D69908 /* Info.plist */,
 				E9D159E62017FB0D00D69908 /* AppDelegate.swift */,
+				E9E2C5B8263716FA008D2811 /* Condor.h */,
+				E9E2C5A2263716FA008D2811 /* Algorithms */,
+				E9E2C5B6263716FA008D2811 /* Protocols */,
 				E9D159FF2017FB9500D69908 /* Assets */,
 				E9D15A0520180A2F00D69908 /* Models */,
 				E9D159FD2017FB5D00D69908 /* ViewControllers */,
@@ -95,7 +122,6 @@
 		E9D159F82017FB1600D69908 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E9C0B7412140AFEA00CDA1DD /* Condor.framework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -138,6 +164,47 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		E9E2C5A2263716FA008D2811 /* Algorithms */ = {
+			isa = PBXGroup;
+			children = (
+				E9E2C5A3263716FA008D2811 /* CondorSort.h */,
+				E9E2C5A4263716FA008D2811 /* CondorNSSort.h */,
+				E9E2C5A5263716FA008D2811 /* CondorObjectSort.m */,
+				E9E2C5A6263716FA008D2811 /* CondorNSSort.m */,
+				E9E2C5A7263716FA008D2811 /* CondorSort.m */,
+				E9E2C5A8263716FA008D2811 /* Helpers */,
+				E9E2C5B5263716FA008D2811 /* CondorObjectSort.h */,
+			);
+			path = Algorithms;
+			sourceTree = "<group>";
+		};
+		E9E2C5A8263716FA008D2811 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E9E2C5A9263716FA008D2811 /* InsertionSort.h */,
+				E9E2C5AA263716FA008D2811 /* CondorObjectSortInt.h */,
+				E9E2C5AB263716FA008D2811 /* QuickSort.h */,
+				E9E2C5AC263716FA008D2811 /* CondorObjectSortDouble.m */,
+				E9E2C5AD263716FA008D2811 /* CondorObjectSortInt64.h */,
+				E9E2C5AE263716FA008D2811 /* CondorObjectSortFloat.h */,
+				E9E2C5AF263716FA008D2811 /* CondorObjectSortInt.m */,
+				E9E2C5B0263716FA008D2811 /* InsertionSort.m */,
+				E9E2C5B1263716FA008D2811 /* QuickSort.m */,
+				E9E2C5B2263716FA008D2811 /* CondorObjectSortFloat.m */,
+				E9E2C5B3263716FA008D2811 /* CondorObjectSortInt64.m */,
+				E9E2C5B4263716FA008D2811 /* CondorObjectSortDouble.h */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E9E2C5B6263716FA008D2811 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				E9E2C5B7263716FA008D2811 /* CondorObjectProtocol.h */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -171,7 +238,7 @@
 				TargetAttributes = {
 					E9D159E22017FB0D00D69908 = {
 						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 0920;
+						LastSwiftMigration = 1230;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -213,8 +280,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9D15A0720180A7600D69908 /* MyDataModel.swift in Sources */,
+				E9E2C5BE263716FA008D2811 /* InsertionSort.m in Sources */,
+				E9E2C5C0263716FA008D2811 /* CondorObjectSortFloat.m in Sources */,
+				E9E2C5C1263716FA008D2811 /* CondorObjectSortInt64.m in Sources */,
+				E9E2C5BA263716FA008D2811 /* CondorNSSort.m in Sources */,
+				E9E2C5B9263716FA008D2811 /* CondorObjectSort.m in Sources */,
 				E9D15A042017FC1100D69908 /* CondorDemoViewController.swift in Sources */,
+				E9E2C5BC263716FA008D2811 /* CondorObjectSortDouble.m in Sources */,
+				E9E2C5BB263716FA008D2811 /* CondorSort.m in Sources */,
+				E9E2C5BF263716FA008D2811 /* QuickSort.m in Sources */,
 				E946A78020185A44005A80CA /* CondorDemoViewControllerObj.m in Sources */,
+				E9E2C5BD263716FA008D2811 /* CondorObjectSortInt.m in Sources */,
 				E946A78320185C52005A80CA /* MyDataModel.m in Sources */,
 				E9D159E72017FB0D00D69908 /* AppDelegate.swift in Sources */,
 			);
@@ -291,7 +367,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -344,7 +420,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -359,6 +435,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_USE_OPTIMIZATION_PROFILE = NO;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.3.6;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = YES;
@@ -378,7 +455,7 @@
 				SWIFT_ENFORCE_EXCLUSIVE_ACCESS = none;
 				SWIFT_OBJC_BRIDGING_HEADER = "CondorSwift/ViewControllers/CondorSwift-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -390,6 +467,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_USE_OPTIMIZATION_PROFILE = NO;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.3.6;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = YES;
@@ -409,7 +487,7 @@
 				SWIFT_ENFORCE_EXCLUSIVE_ACCESS = none;
 				SWIFT_OBJC_BRIDGING_HEADER = "CondorSwift/ViewControllers/CondorSwift-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

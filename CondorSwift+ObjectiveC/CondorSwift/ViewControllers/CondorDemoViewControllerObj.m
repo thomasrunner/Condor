@@ -30,7 +30,7 @@
 
 #import "CondorDemoViewControllerObj.h"
 #import "MyDataModel.h"
-#import <Condor/Condor.h>
+#import "Condor.h"
 
 typedef NS_ENUM(int)
 {
@@ -249,7 +249,13 @@ typedef NS_ENUM(int)
         case Int32:
             
             arrayInt = (signed int*)calloc(arraySize, 4);
+            //Same Value
+//            for(int i = 0; i < arraySize; i++)
+//            {
+//                arrayInt[i] = (signed int)(arraySize - i - 1);
+//            }
             
+            //Random values
             for(int i = 0; i < arraySize/2; i++)
             {
                 signed int value = ((signed int)arc4random_uniform(21474836));
@@ -535,6 +541,11 @@ typedef NS_ENUM(int)
     
     signed int* array = (signed int*)calloc(arraySize, 4);
     
+//    for(int i = 0; i < arraySize; i++)
+//    {
+//        array[i] = (signed int)(arraySize - i - 1);
+//    }
+    
     for(int i = 0; i < arraySize/2; i++)
     {
         signed int value = ((signed int)arc4random_uniform(21474836));
@@ -577,6 +588,11 @@ typedef NS_ENUM(int)
     
     arraySize = [arraySizeTextField.text intValue];
     signed int* array = (signed int*)calloc(arraySize, 4);
+    
+//    for(int i = 0; i < arraySize; i++)
+//    {
+//        array[i] = (signed int)(arraySize - i - 1);
+//    }
     
     for(int i = 0; i < arraySize; i++)
     {
