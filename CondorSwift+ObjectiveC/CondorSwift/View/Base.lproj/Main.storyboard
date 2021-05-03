@@ -301,7 +301,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="OBJECTIVE-C" id="2al-oC-bnA">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="NKt-kP-O51">
-                            <button key="customView" hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Qle-um-RWp">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Qle-um-RWp">
                                 <rect key="frame" x="276" y="7" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="SWIFT"/>

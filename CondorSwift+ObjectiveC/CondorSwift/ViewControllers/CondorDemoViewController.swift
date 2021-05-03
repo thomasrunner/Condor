@@ -90,40 +90,20 @@ class CondorDemoViewController: UIViewController {
     }
     
     @IBAction func condorSortButton(_ sender: Any){
-        
-//        let condorSort = CondorSObjectSort<MyDataModel>()
-//        let condorSort = CondorObjectSortInt()
-//        let condorSortFloat = CondorObjectSortFloat()
-//        array = []
-//        buildTestArray()
-//
-//        let d1 = NSDate()
-//        //THIS IS AN OBJECTIVE C VERSION, A NATIVE SWIFT VERSION IS ABOUT 50-70% FASTER
-//        let selectorString : String = "anyPropertyInt"
-//
-//        let output = condorSort.sortSignedIntObjectArray(array, orderDesc: false, selectorNameAs: selectorString) as! [MyDataModel]
-//        let output = condorSort.sort(array:array, descending: false, property: { Int32($0.condorId) })
-//        let output = condorSort.sort(array: array, descending: false, property: { Int32($0.condorId) })
-        
-//        print("Performance ",d1.timeIntervalSinceNow * -1000)
-//        condorPerformanceLabel.text = String(format:"%0.2f" ,d1.timeIntervalSinceNow * -1000) + "ms"
-//
-//        var passed : Bool = true
-//        var countErrors : Int = 0
-//        for i in 1..<array.count
-//        {
-//            if(output[i].condorId < output[i-1].condorId)
-//            {
-//                countErrors += 1
-//                passed = false;
-//                print("\(output[i].condorId) \(i) ")
-//                //break;
-//            }
-//        }
-        
-//        print(countErrors)
-//        if passed == true { print("In Order") }
-        
+        arraySize = Int(arraySizeTextField.text!)!
+        //        let sequence = 0..<arraySize
+        //        var arrayInt = sequence.sorted()
+        //        var arrayInt:[Int] = Array.init(repeating: 0, count: arraySize)
+        //        let sequence = 0..<arraySize
+        //        var arrayInt = sequence.reversed() as [Int]
+
+        var arrayInt:[Int] = (1...1000).map( {_ in Int.random(in: 1...1000)} )
+        let ccs = CondorCompareSorting<Int>()
+        let d1 = NSDate()
+        arrayInt = ccs.condorSort(arrayInt)
+        print("Performance ",d1.timeIntervalSinceNow * -1000)
+//        print(arrayInt)
+
     }
     
     @IBAction func swiftSortButton(_ sender: Any) {

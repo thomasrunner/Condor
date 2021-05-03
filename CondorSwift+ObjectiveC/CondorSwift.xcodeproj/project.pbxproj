@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E92CA95E263F81490028CB01 /* CondorCompareSorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92CA95D263F81490028CB01 /* CondorCompareSorting.swift */; };
 		E946A78020185A44005A80CA /* CondorDemoViewControllerObj.m in Sources */ = {isa = PBXBuildFile; fileRef = E946A77F20185A44005A80CA /* CondorDemoViewControllerObj.m */; };
 		E946A78320185C52005A80CA /* MyDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E946A78120185C52005A80CA /* MyDataModel.m */; };
 		E9D159E72017FB0D00D69908 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D159E62017FB0D00D69908 /* AppDelegate.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E92CA95D263F81490028CB01 /* CondorCompareSorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CondorCompareSorting.swift; sourceTree = "<group>"; };
 		E946A77E20185A44005A80CA /* CondorDemoViewControllerObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CondorDemoViewControllerObj.h; sourceTree = "<group>"; };
 		E946A77F20185A44005A80CA /* CondorDemoViewControllerObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CondorDemoViewControllerObj.m; sourceTree = "<group>"; };
 		E946A78120185C52005A80CA /* MyDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDataModel.m; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				E9E2C5B2263716FA008D2811 /* CondorObjectSortFloat.m */,
 				E9E2C5B3263716FA008D2811 /* CondorObjectSortInt64.m */,
 				E9E2C5B4263716FA008D2811 /* CondorObjectSortDouble.h */,
+				E92CA95D263F81490028CB01 /* CondorCompareSorting.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -233,7 +236,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = "Thomas Lock";
 				TargetAttributes = {
 					E9D159E22017FB0D00D69908 = {
@@ -291,6 +294,7 @@
 				E9E2C5BF263716FA008D2811 /* QuickSort.m in Sources */,
 				E946A78020185A44005A80CA /* CondorDemoViewControllerObj.m in Sources */,
 				E9E2C5BD263716FA008D2811 /* CondorObjectSortInt.m in Sources */,
+				E92CA95E263F81490028CB01 /* CondorCompareSorting.swift in Sources */,
 				E946A78320185C52005A80CA /* MyDataModel.m in Sources */,
 				E9D159E72017FB0D00D69908 /* AppDelegate.swift in Sources */,
 			);
@@ -332,6 +336,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -339,8 +344,10 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -367,9 +374,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -390,6 +397,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -397,8 +405,10 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -420,7 +430,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -435,7 +445,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_USE_OPTIMIZATION_PROFILE = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.3.6;
+				CURRENT_PROJECT_VERSION = 1.3.7;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = YES;
@@ -467,7 +477,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_USE_OPTIMIZATION_PROFILE = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.3.6;
+				CURRENT_PROJECT_VERSION = 1.3.7;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = YES;
